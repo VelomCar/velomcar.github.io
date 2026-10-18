@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#050506">
+<title>VELOM Car — Kurator Mobil Mewah</title>
+<meta name="description" content="Unit mobil mewah pilihan. Lihat 3D, putar foto, dengar spesifikasinya, lalu chat langsung via WhatsApp.">
+<meta property="og:title" content="VELOM Car — Mobil Para Boss">
+<meta property="og:description" content="Unit mewah pilihan dari showroom terpercaya. Chat langsung via WhatsApp.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23050506'/%3E%3Cpath d='M14 18h9l9 20 9-20h9L36 48h-8z' fill='%23ff3b1f'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;500;700;900&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/velom.css?v=12">
+<script type="importmap">
+{ "imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+} }
+</script>
+</head>
+<body class="is-gated">
+
+<!-- ================= GERBANG: START ENGINE ================= -->
+<div id="gate" class="gate" role="dialog" aria-label="Masuk ke Velom">
+  <div class="gate-lights"><i></i><i></i></div>
+  <div class="gate-inner">
+    <div class="gate-logo"><em>V</em>ELOM</div>
+    <p class="gate-sub">Kurator Mobil Mewah · Indonesia</p>
+    <button id="startBtn" class="start-btn" aria-label="Start engine dan masuk dengan suara">
+      <span class="start-ring"></span>
+      <span class="start-face">
+        <small>ENGINE</small>
+        <b>START</b>
+        <small>STOP</small>
+      </span>
+    </button>
+    <p class="gate-hint">Tekan untuk menyalakan mesin <span class="hint-sound">🔊 suara mesin V8</span></p>
+    <button id="silentBtn" class="gate-silent">Masuk tanpa suara</button>
+    <div class="gate-load"><span id="gateBar"></span></div>
+    <p class="gate-load-text" id="gateText">Memanaskan mesin…</p>
+  </div>
+  <div class="gate-flash"></div>
+</div>
+
+<div class="grain" aria-hidden="true"></div>
+<div class="cursor" aria-hidden="true"><span class="cursor-label"></span></div>
+
+<!-- ================= NAV ================= -->
+<header class="nav">
+  <a href="#top" class="logo" data-cursor="Atas"><em>V</em>ELOM</a>
+  <nav class="nav-links">
+    <a href="#garage">Garasi</a>
+    <a href="#market">Harga Pasaran</a>
+    <a href="#request">Request</a>
+    <a href="#contact">Kontak</a>
+  </nav>
+  <div class="nav-right">
+    <a id="navIg" class="sound-btn" target="_blank" rel="noopener" aria-label="Instagram Velom Car" data-cursor="IG" hidden><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+    <button id="soundBtn" class="sound-btn" aria-label="Suara on/off" data-cursor="Suara">
+      <span class="bars"><i></i><i></i><i></i><i></i></span>
+    </button>
+    <a class="nav-wa" target="_blank" rel="noopener" data-wa="general">Chat WA</a>
+  </div>
+</header>
+
+<!-- speedometer scroll -->
+<div class="speedo" aria-hidden="true">
+  <svg viewBox="0 0 120 120">
+    <path class="speedo-track" d="M22 92 A46 46 0 1 1 98 92"/>
+    <path class="speedo-fill" id="speedoFill" d="M22 92 A46 46 0 1 1 98 92"/>
+    <line id="speedoNeedle" x1="60" y1="64" x2="60" y2="24"/>
+    <circle cx="60" cy="64" r="4"/>
+  </svg>
+  <div class="speedo-num"><b id="speedoNum">0</b><span>km/h</span></div>
+  <div class="speedo-odo" id="speedoOdo">000000</div>
+</div>
+
+<main id="top">
+  <!-- ================= HERO 3D ================= -->
+  <section id="hero" class="hero">
+    <div class="hero-pin">
+      <div class="hero-glow"></div>
+      <div class="hero-bigword" aria-hidden="true"><span>VELOM</span></div>
+      <canvas id="car3d" data-cursor="Seret"></canvas>
+      <div class="hero-fallback"><img alt=""></div>
+      <div class="hero-copy">
+        <p class="eyebrow"><i class="dot"></i>Kurator Mobil Mewah — Indonesia</p>
+        <h1 class="hero-title"><span class="line"><span>Mobil para</span></span><span class="line"><span><em>boss</em> besar.</span></span></h1>
+        <p class="hero-sub">Unit pilihan dari showroom terpercaya. Putar, dengar, rasakan — lalu chat langsung.</p>
+        <div class="hero-ctas">
+          <a href="#garage" class="btn btn-fire" data-cursor="Garasi">Lihat Garasi <span>↓</span></a>
+          <a class="btn btn-ghost" target="_blank" rel="noopener" data-wa="general">WhatsApp</a>
+        </div>
+      </div>
+      <div class="hero-captions">
+        <div class="cap" data-i="0"><b>01</b><span>Seret mobil untuk memutar 360°</span></div>
+        <div class="cap" data-i="1"><b>02</b><span>Semua unit di bawah harga pasaran</span></div>
+        <div class="cap" data-i="2"><b>03</b><span>Scroll = pedal gas. Rasakan mesinnya.</span></div>
+      </div>
+      <div class="hero-stats">
+        <div><b id="statUnits">0</b><small>Unit ready</small></div>
+        <div><b id="statBrands">0</b><small>Brand</small></div>
+        <div><b>34</b><small>Provinsi terjangkau</small></div>
+      </div>
+      <div class="hero-scroll"><span></span>Scroll</div>
+    </div>
+  </section>
+
+  <!-- ================= MARQUEE ================= -->
+  <section class="marquee" aria-hidden="true">
+    <div class="marquee-track" id="marquee"></div>
+  </section>
+
+  <!-- ================= MANIFESTO ================= -->
+  <section class="manifesto">
+    <p class="eyebrow">Manifesto</p>
+    <p class="manifesto-text" id="manifesto">Kami tidak sekadar menjual mobil. Kami mempertemukan Anda dengan mesin yang tepat — dikurasi, bebas banjir, surat lengkap, dan siap dikirim ke seluruh Indonesia. Setiap unit di sini bisa Anda putar, dengar, dan tanyakan langsung.</p>
+  </section>
+
+  <!-- ================= GARASI ================= -->
+  <section id="garage" class="garage">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow"><i class="dot"></i>Garasi Velom</p>
+        <h2 class="sec-title">Unit <em>ready</em><br>hari ini.</h2>
+      </div>
+      <p class="sec-note">Gerakkan kursor / jari di atas kartu untuk memutar semua foto. Miringkan HP Anda — kartunya ikut bergerak.</p>
+    </div>
+    <div class="filters" id="filters"></div>
+    <div class="deck" id="deck"></div>
+    <p class="empty" id="empty" hidden>Belum ada unit. Tambahkan ZIP lewat halaman admin.</p>
+  </section>
+
+  <!-- ================= LAYANAN ================= -->
+  <section id="market" class="services">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow"><i class="dot"></i>Radar Harga Pasaran</p>
+        <h2 class="sec-title">Di bawah<br><em>harga pasaran.</em></h2>
+      </div>
+      <div class="total-save" id="totalSave" hidden>
+        <small>Total selisih dari harga pasaran</small>
+        <b id="totalSaveVal">Rp 0</b>
+        <span id="totalSaveSub"></span>
+      </div>
+    </div>
+    <div class="radar" id="radar"></div>
+    <div class="sec-head why-head">
+      <div>
+        <p class="eyebrow"><i class="dot"></i>Kenapa harga kami lebih rendah?</p>
+      </div>
+    </div>
+    <div class="svc-grid" id="whyGrid"></div>
+  </section>
+
+  <!-- ================= REQUEST ================= -->
+  <section id="request" class="request">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow"><i class="dot"></i>Request</p>
+        <h2 class="sec-title">Punya mobil?<br><em>Cari unit?</em></h2>
+      </div>
+      <p class="sec-note">Ketik kebutuhan Anda di bawah. Pesannya tersusun otomatis dan langsung terkirim ke WhatsApp Velom.</p>
+    </div>
+    <div class="rq">
+      <form class="rq-form" id="rqForm" novalidate>
+        <div class="rq-tabs" role="tablist">
+          <button type="button" class="rq-tab is-on" data-mode="jual" role="tab">🚗 Saya mau jual mobil</button>
+          <button type="button" class="rq-tab" data-mode="cari" role="tab">🔍 Saya cari unit</button>
+        </div>
+
+        <fieldset class="rq-set" data-mode="jual">
+          <label class="rq-f"><span>Nama Anda</span><input name="nama" autocomplete="name" placeholder="contoh: Budi"></label>
+          <label class="rq-f"><span>Kota</span><input name="kota" placeholder="contoh: Jakarta Selatan"></label>
+          <label class="rq-f full"><span>Merk &amp; tipe mobil Anda *</span><input name="unit" placeholder="contoh: BMW 530i M Sport"></label>
+          <label class="rq-f"><span>Tahun</span><input name="tahun" inputmode="numeric" placeholder="contoh: 2020"></label>
+          <label class="rq-f"><span>Odometer</span><input name="odo" placeholder="contoh: 35rb km"></label>
+          <label class="rq-f"><span>Warna</span><input name="warna" placeholder="contoh: Hitam"></label>
+          <label class="rq-f"><span>Harga yang diharapkan</span><input name="harga" placeholder="contoh: 650 jt nego"></label>
+          <label class="rq-f full"><span>Kondisi / catatan</span><textarea name="catatan" rows="3" placeholder="contoh: tangan pertama, service record, pajak panjang…"></textarea></label>
+        </fieldset>
+
+        <fieldset class="rq-set" data-mode="cari" hidden disabled>
+          <label class="rq-f"><span>Nama Anda</span><input name="nama" autocomplete="name" placeholder="contoh: Budi"></label>
+          <label class="rq-f"><span>Kota</span><input name="kota" placeholder="contoh: Surabaya"></label>
+          <label class="rq-f full"><span>Unit yang dicari *</span><input name="unit" placeholder="contoh: Mercedes-Benz E300 AMG / Alphard"></label>
+          <label class="rq-f"><span>Tahun</span><input name="tahun" placeholder="contoh: 2019 – 2022"></label>
+          <label class="rq-f"><span>Budget</span><input name="budget" placeholder="contoh: maks 900 jt"></label>
+          <label class="rq-f full"><span>Warna favorit</span><input name="warna" placeholder="contoh: Putih / Hitam"></label>
+          <label class="rq-f full"><span>Catatan</span><textarea name="catatan" rows="3" placeholder="contoh: low odo, interior coklat, butuh cepat…"></textarea></label>
+        </fieldset>
+
+        <button type="submit" class="btn btn-wa rq-send">
+          <svg viewBox="0 0 32 32" width="20" height="20"><path fill="currentColor" d="M16 3C9 3 3.3 8.6 3.3 15.6c0 2.5.7 4.8 2 6.8L3 29l6.8-2.2c1.9 1 4 1.6 6.2 1.6 7 0 12.7-5.7 12.7-12.7S23 3 16 3z"/></svg>
+          Kirim ke WhatsApp
+        </button>
+        <p class="rq-err" id="rqErr" hidden></p>
+      </form>
+
+      <div class="rq-preview" aria-live="polite">
+        <div class="rq-phone-top"><span class="rq-ava"><em>V</em></span><div><b>Velom Car</b><small>pratinjau pesan WhatsApp Anda</small></div></div>
+        <div class="rq-chat"><div class="rq-bubble" id="rqBubble"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= KONTAK ================= -->
+  <section id="contact" class="contact">
+    <p class="eyebrow"><i class="dot"></i>Siap jalan?</p>
+    <h2 class="contact-title"><span>Mau yang</span><span>mana, <em>Boss?</em></span></h2>
+    <a class="mega-wa magnetic" target="_blank" rel="noopener" data-wa="general" data-cursor="Chat">
+      <span class="mega-wa-ic"><svg viewBox="0 0 32 32"><path fill="currentColor" d="M16 3C9 3 3.3 8.6 3.3 15.6c0 2.5.7 4.8 2 6.8L3 29l6.8-2.2c1.9 1 4 1.6 6.2 1.6 7 0 12.7-5.7 12.7-12.7S23 3 16 3zm0 23.2c-2 0-4-.6-5.6-1.6l-.4-.3-4 1.3 1.3-3.9-.3-.4c-1.1-1.7-1.7-3.7-1.7-5.7C5.3 9.8 10.1 5 16 5s10.7 4.8 10.7 10.7S21.9 26.2 16 26.2zm5.9-8c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-1.9-1.8-2.2-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.3.3-.6.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.8s1.2 3.2 1.4 3.5c.2.2 2.4 3.6 5.7 5 .8.3 1.4.5 1.9.7.8.3 1.6.2 2.2.1.7-.1 1.9-.8 2.2-1.5.3-.8.3-1.4.2-1.5-.1-.3-.3-.4-.6-.5z"/></svg></span>
+      <span class="mega-wa-text"><small>Chat langsung</small><b id="waDisplay">WhatsApp</b></span>
+      <span class="mega-wa-arrow">→</span>
+    </a>
+    <a class="ig-link" id="igLink" target="_blank" rel="noopener" hidden></a>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-big" aria-hidden="true">VELOM</div>
+    <div class="footer-row">
+      <span>© <span id="year"></span> Velom Car · <a id="footIg" target="_blank" rel="noopener" hidden></a></span>
+      <span>Harga &amp; ketersediaan dapat berubah sewaktu-waktu.</span>
+    </div>
+  </footer>
+</main>
+
+<!-- concierge + WA mengambang -->
+<div class="concierge" id="concierge">
+  <div class="concierge-bubble" id="conciergeBubble"><button class="concierge-x" aria-label="Tutup">×</button><span id="conciergeText"></span></div>
+  <a class="wa-float" target="_blank" rel="noopener" data-wa="general" aria-label="Chat WhatsApp">
+    <svg viewBox="0 0 32 32"><path fill="currentColor" d="M16 3C9 3 3.3 8.6 3.3 15.6c0 2.5.7 4.8 2 6.8L3 29l6.8-2.2c1.9 1 4 1.6 6.2 1.6 7 0 12.7-5.7 12.7-12.7S23 3 16 3zm5.9 15.2c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-1.9-1.8-2.2-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.3.3-.6.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.8s1.2 3.2 1.4 3.5c.2.2 2.4 3.6 5.7 5 .8.3 1.4.5 1.9.7.8.3 1.6.2 2.2.1.7-.1 1.9-.8 2.2-1.5.3-.8.3-1.4.2-1.5-.1-.3-.3-.4-.6-.5z"/></svg>
+    <span class="wa-pulse"></span>
+  </a>
+</div>
+
+<!-- detail unit (diisi oleh JavaScript) -->
+<div id="detail" class="detail" aria-hidden="true" data-lenis-prevent></div>
+<div id="lightbox" class="lightbox" aria-hidden="true" data-lenis-prevent>
+  <button class="lb-x" aria-label="Tutup">×</button>
+  <button class="lb-nav lb-prev" aria-label="Sebelumnya">‹</button>
+  <img alt="">
+  <button class="lb-nav lb-next" aria-label="Berikutnya">›</button>
+  <div class="lb-count"></div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="assets/js/config.js?v=12"></script>
+<script src="assets/js/parser.js?v=12"></script>
+<script src="assets/js/sfx.js?v=12"></script>
+<script src="assets/js/hero3d.js?v=12"></script>
+<script src="assets/js/app.js?v=12"></script>
+</body>
+</html>

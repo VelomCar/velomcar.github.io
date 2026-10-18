@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#050506">
+<meta name="robots" content="noindex, nofollow">
+<title>VELOM Admin — Auto Generate</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23050506'/%3E%3Cpath d='M14 18h9l9 20 9-20h9L36 48h-8z' fill='%23ff3b1f'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;900&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/admin.css?v=12">
+</head>
+<body>
+
+<!-- PIN -->
+<div class="pin" id="pin">
+  <div class="pin-box">
+    <div class="logo"><em>V</em>ELOM <span>ADMIN</span></div>
+    <p>Masukkan PIN admin</p>
+    <input id="pinInput" type="password" inputmode="numeric" autocomplete="off" placeholder="••••">
+    <button id="pinBtn" class="btn fire">Masuk</button>
+    <small id="pinErr"></small>
+  </div>
+</div>
+
+<header class="top">
+  <div class="logo"><em>V</em>ELOM <span>ADMIN</span></div>
+  <nav class="tabs">
+    <button class="tab on" data-tab="upload">⬆ Upload ZIP</button>
+    <button class="tab" data-tab="stock">🚗 Inventori <b id="stockCount">0</b></button>
+    <button class="tab" data-tab="settings">⚙ Publish</button>
+  </nav>
+  <a class="btn ghost sm" href="index.html" target="_blank">Lihat Website ↗</a>
+</header>
+
+<main>
+  <!-- ========== UPLOAD ========== -->
+  <section class="panel on" id="tab-upload">
+    <label class="drop" id="drop">
+      <input type="file" id="zipInput" accept=".zip,application/zip" multiple hidden>
+      <div class="drop-ic">⇪</div>
+      <h2>Seret file ZIP ke sini</h2>
+      <p>atau ketuk untuk memilih — bisa banyak ZIP sekaligus.<br>Isi ZIP: foto-foto mobil + <code>Spek.txt</code></p>
+    </label>
+    <div id="drafts"></div>
+  </section>
+
+  <!-- ========== INVENTORI ========== -->
+  <section class="panel" id="tab-stock">
+    <div class="panel-head">
+      <h2>Inventori Website</h2>
+      <p>Atur urutan, status (Ready / Booked / Sembunyi), edit harga, atau buat poster Instagram Story.
+        Tekan <b>✓ SOLD</b> jika unit terjual — unit &amp; semua fotonya dihapus dari website saat Anda tekan 🚀 Publish.</p>
+      <button class="btn danger sm" id="delAll" style="margin-top:12px">🗑 Hapus semua unit</button>
+    </div>
+    <div id="stock"></div>
+  </section>
+
+  <!-- ========== SETTINGS ========== -->
+  <section class="panel" id="tab-settings">
+    <div class="panel-head">
+      <h2>Cara Publish</h2>
+      <p>Pilih salah satu. Semua perubahan disimpan di perangkat ini sampai Anda publish.</p>
+    </div>
+    <div class="cards3">
+      <div class="opt">
+        <h3>🚀 A. Langsung Online (GitHub Pages)</h3>
+        <p>Paling praktis — bisa dari HP. Sekali setup, setelah itu tinggal upload ZIP lalu tekan <b>Publish</b>. Website otomatis update ±1 menit.</p>
+        <div class="form">
+          <label>Username GitHub<input id="ghOwner" placeholder="contoh: velomcar"></label>
+          <label>Nama repository<input id="ghRepo" placeholder="contoh: velomcar.github.io"></label>
+          <label>Branch<input id="ghBranch" placeholder="main"></label>
+          <label>Token GitHub (fine-grained, akses Contents: Read &amp; Write)<input id="ghToken" type="password" placeholder="github_pat_…" autocomplete="off"></label>
+          <div class="row"><button class="btn" id="ghSave">Simpan</button><button class="btn ghost" id="ghTest">Tes Koneksi</button></div>
+          <small class="muted">Token hanya disimpan di browser perangkat ini, tidak ikut ter-upload ke website.</small>
+        </div>
+      </div>
+      <div class="opt">
+        <h3>💾 B. Simpan ke Folder di PC</h3>
+        <p>Untuk Chrome / Edge di laptop. Pilih folder <b>Velom Car Auto Generate Website</b>, file foto &amp; data langsung ditulis ke sana. Setelah itu upload folder ke hosting.</p>
+      </div>
+      <div class="opt">
+        <h3>📦 C. Download Paket Update</h3>
+        <p>Mengunduh ZIP berisi foto baru + <code>data/cars.js</code>. Ekstrak ke folder website (timpa file lama).</p>
+      </div>
+      <div class="opt">
+        <h3>🖥 D. Tanpa Browser (GENERATE.bat)</h3>
+        <p>Taruh ZIP di folder <code>INBOX/NamaBrand/</code> lalu dobel-klik <code>GENERATE.bat</code>. Semua otomatis.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- bar publish -->
+<div class="pubbar" id="pubbar">
+  <div class="pub-info"><span class="pub-dot"></span><span id="pubText">Tidak ada perubahan</span></div>
+  <div class="pub-btns">
+    <button class="btn fire" id="pubGh">🚀 Publish</button>
+    <button class="btn ghost" id="pubFolder">💾 Ke Folder</button>
+    <button class="btn ghost" id="pubZip">📦 Paket</button>
+  </div>
+</div>
+
+<!-- modal -->
+<div class="modal" id="modal"><div class="modal-box" id="modalBox"></div></div>
+<div class="toast" id="toast"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script src="assets/js/config.js?v=12"></script>
+<script src="assets/js/parser.js?v=12"></script>
+<script src="assets/js/admin.js?v=12"></script>
+</body>
+</html>
