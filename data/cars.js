@@ -1,6 +1,25 @@
 window.VELOM_DATA = {
  "cars": [
   {
+   "id": "mercedes-benz-c300-coupe",
+   "brand": "Mercedes-Benz",
+   "date": "2026-10-18",
+   "photos": [
+    "cars/mercedes-benz-c300-coupe/01.jpg",
+    "cars/mercedes-benz-c300-coupe/02.jpg",
+    "cars/mercedes-benz-c300-coupe/03.jpg",
+    "cars/mercedes-benz-c300-coupe/04.jpg",
+    "cars/mercedes-benz-c300-coupe/05.jpg",
+    "cars/mercedes-benz-c300-coupe/06.jpg",
+    "cars/mercedes-benz-c300-coupe/07.jpg"
+   ],
+   "spek": "MERCEDES BENZ C300 COUPE 2021\n\nMINAT BISA LANGSUNG WA\n\nMERCY C 300 COUPE 2 DOORS! ( RARE ITEM )\n\nNIK PEMBUATAN 2019\n\nFAKTUR DAN PEMAKAIAN 2021\n\nODO 15 RB FULL RECORD AUTHORIZED MERCEDES \n\nPAJAK PANJANG 2/27 ATAS NAMA PRIBADI DARI BARU\n\nPLAT B GENAP\n\nMOBIL NO MINES, CAT FULL ORISINIL\n\nDOKUMEN LENGKAP: STNK, BPKB, FAKTUR, NIK, KUNCI 2\n\nLOKASI PANTAI INDAH KAPUK\n\nHARGA 778 JT NEGO DI LOKASI",
+   "status": "ready",
+   "edits": {},
+   "source": "admin:18.10.2026...zip",
+   "added": "2026-10-18T16:19:06"
+  },
+  {
    "id": "mercedes-benz-c200-amg-2019",
    "brand": "Mercedes-Benz",
    "date": "2026-10-18",
@@ -65,5 +84,5 @@ window.VELOM_DATA = {
    "added": "2026-10-18T19:27:12"
   }
  ],
- "updated": "2026-10-18T16:16:27"
+ "updated": "2026-10-18T16:22:18"
 };
