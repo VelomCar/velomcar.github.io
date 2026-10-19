@@ -89,28 +89,6 @@ window.VELOM_DATA = {
    "added": "2026-10-18T16:19:06"
   },
   {
-   "id": "mercedes-benz-c200-amg-2019",
-   "brand": "Mercedes-Benz",
-   "date": "2026-10-18",
-   "photos": [
-    "cars/mercedes-benz-c200-amg-2019/01.jpg",
-    "cars/mercedes-benz-c200-amg-2019/02.jpg",
-    "cars/mercedes-benz-c200-amg-2019/03.jpg",
-    "cars/mercedes-benz-c200-amg-2019/04.jpg",
-    "cars/mercedes-benz-c200-amg-2019/05.jpg",
-    "cars/mercedes-benz-c200-amg-2019/06.jpg",
-    "cars/mercedes-benz-c200-amg-2019/07.jpg",
-    "cars/mercedes-benz-c200-amg-2019/08.jpg",
-    "cars/mercedes-benz-c200-amg-2019/09.jpg",
-    "cars/mercedes-benz-c200-amg-2019/10.jpg"
-   ],
-   "spek": "FOR SALE TERMURAH!!!\nMERCEDES BENZ C200 AMG 2019!!! AMG ASLI! LOW ODO\n\nYear NIK 2018\nColor Black on Black\nAutomatic Transmission \n\nTax 08.2027 (PANJANG TAHUN DEPAN)\nAll Papers Complete, Manual Book, Spare Key\nOdometer 37rb mls Service Record Mercy\n\nEngine 2.0L Turbo\nElectric Seat + Memory\nFull AMG Body Kit + Velg\nAmbient Lighting Colour\nElectric Parking Brake\nParking Camera & Sensor\nElectric Seat & Memory Seat\nPaddle Shift & Cruise Control\nAudio with Bluetooth & AUX\nSteering switch control\n\nACCIDENT AND FLOOD FREE\nEngine Transmission All Good\nKondisi Mobil Terawat\n\nPRICE : 350JT CASH NEGO BAYAR\nMARKET PRICE 400JT++",
-   "status": "ready",
-   "edits": {},
-   "source": "Mercedes/18.10.2026.zip",
-   "added": "2026-10-18T19:27:13"
-  },
-  {
    "id": "bmw-m4-competition-cabriolet-lci-idrive8-2026",
    "brand": "BMW",
    "date": "2026-10-18",
@@ -153,5 +131,5 @@ window.VELOM_DATA = {
    "added": "2026-10-18T19:27:12"
   }
  ],
- "updated": "2026-10-19T08:39:52"
+ "updated": "2026-10-19T08:40:29"
 };
