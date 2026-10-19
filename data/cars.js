@@ -1,6 +1,75 @@
 window.VELOM_DATA = {
  "cars": [
   {
+   "id": "kia-grand-carnival-premiere-2023-diesel-11-seaters-org-dewas",
+   "brand": "Kia",
+   "date": "2026-10-19",
+   "photos": [
+    "cars/kia-grand-carnival-premiere-2023-diesel-11-seaters-org-dewas/01.jpg",
+    "cars/kia-grand-carnival-premiere-2023-diesel-11-seaters-org-dewas/02.jpg",
+    "cars/kia-grand-carnival-premiere-2023-diesel-11-seaters-org-dewas/03.jpg",
+    "cars/kia-grand-carnival-premiere-2023-diesel-11-seaters-org-dewas/04.jpg",
+    "cars/kia-grand-carnival-premiere-2023-diesel-11-seaters-org-dewas/05.jpg",
+    "cars/kia-grand-carnival-premiere-2023-diesel-11-seaters-org-dewas/06.jpg",
+    "cars/kia-grand-carnival-premiere-2023-diesel-11-seaters-org-dewas/07.jpg",
+    "cars/kia-grand-carnival-premiere-2023-diesel-11-seaters-org-dewas/08.jpg",
+    "cars/kia-grand-carnival-premiere-2023-diesel-11-seaters-org-dewas/09.jpg",
+    "cars/kia-grand-carnival-premiere-2023-diesel-11-seaters-org-dewas/10.jpg",
+    "cars/kia-grand-carnival-premiere-2023-diesel-11-seaters-org-dewas/11.jpg"
+   ],
+   "spek": "KIA Grand Carnival Premiere 2023 DIESEL 11 SEATERS ORG DEWASA!\n.\nNIK 2022\nPajak 08.2027\nOdo 47rb KM Record KIA\nWhite On Black 11 SEATERS!\n.\nBisa Masuk 1 Keluarga Besar Full 11 Orang! TIDAK PISAH PISAH!\nDiesel Irit Banget 1:22\nKursi 11 Penumpang\nCamera 360\nHeater Panas Kiri Kanan\nBose 12 Speaker\nDouble Panoramic Sunroof\nBisa Applecarplay & Android Auto\nSmart Power Sliding Door\nSmart PowerBackDoor\n.\nHarga 478JT AJA NET! BUAT 11 ORANG \nPasaran 5xxJT!",
+   "status": "ready",
+   "edits": {},
+   "source": "admin:19.10.2026.zip",
+   "added": "2026-10-19T08:36:55"
+  },
+  {
+   "id": "porsche-taycan-electric-atpm",
+   "brand": "Porsche",
+   "date": "2026-10-19",
+   "photos": [
+    "cars/porsche-taycan-electric-atpm/01.jpg",
+    "cars/porsche-taycan-electric-atpm/02.jpg",
+    "cars/porsche-taycan-electric-atpm/03.jpg",
+    "cars/porsche-taycan-electric-atpm/04.jpg",
+    "cars/porsche-taycan-electric-atpm/05.jpg",
+    "cars/porsche-taycan-electric-atpm/06.jpg",
+    "cars/porsche-taycan-electric-atpm/07.jpg",
+    "cars/porsche-taycan-electric-atpm/08.jpg"
+   ],
+   "spek": "Porsche Taycan Electric ATPM 2025! SUDAH ASLI FACELIFT! Beda Look Beda Velg! GA ADA YANG JUAL FACELIFT\n.\nUNIT ATPM Full Warranty By Porsche Center Jakarta! \nSudah General Checkup Di Porsche Center Jakarta! HASIL BATTERY HEALTH 100%\n.\nWarranty Battery Till 2033\nWarranty Service Till 2029\nSEMUA KLAIM AJA KE PORSCHE!\nWall Charger Dapet!\n.\nNIK 2024 , Registrasi 2025\nOdo 2.000 / 2 RIBU PERAK ( RECORD PORSCHE CENTER JAKARTA ATPM )\nPajak April 2027 ( TAHUN DEPAN ) hanya 400k\nIce Grey On Black ( Pagi White , Malam Abu Keputihan )\n.\n100% Battery Bisa Jalan 678KM ( SANGAT JAUH ) Karena Sudah Facelift\nPengisian Sudah Berbeda Dari Sebelumnya Bisa Sampai 320KW , 10-80% Hanya 18 Menit\nSudah Facelift Tampilan Look Lebih Lancip Dan Sporty\nLampu Sudah Facelift Lebih Tajem\nLampu Belakang Sudah Model Baru\nAdaptive AirSuspension\nAmbient Light Interior\nDrive Mode Banyak Pilihan\nPower Steering Mode \nPanoramic Sunroof\n.\nPrice 2.388MILYAR NET!\nBRAND NEW 3.8-4MILYAR!\nHEMAT 1.5MILYARAN!",
+   "status": "ready",
+   "edits": {},
+   "source": "admin:19.10.2026.zip",
+   "added": "2026-10-19T08:37:14"
+  },
+  {
+   "id": "bmw-z4",
+   "brand": "BMW",
+   "date": "2026-10-19",
+   "photos": [
+    "cars/bmw-z4/01.jpg",
+    "cars/bmw-z4/02.jpg",
+    "cars/bmw-z4/03.jpg",
+    "cars/bmw-z4/04.jpg",
+    "cars/bmw-z4/05.jpg",
+    "cars/bmw-z4/06.jpg",
+    "cars/bmw-z4/07.jpg",
+    "cars/bmw-z4/08.jpg",
+    "cars/bmw-z4/09.jpg",
+    "cars/bmw-z4/10.jpg",
+    "cars/bmw-z4/11.jpg",
+    "cars/bmw-z4/12.jpg"
+   ],
+   "spek": "BMW Z4 2024! Z4 Roadster Cabriolet! ODO 1000 PERAK!\nBeli Bekas RASA BARU\n.\nBSI BRI On Till 2029! FREE KLAIM Part & Service! Tinggal Bawa BMW Semua Gratiss\n.\nNIK 2023 , Registrasi 2024\nOdo 1000 / SERIBU MILES! Record BMW!\nPajak Januari 2026\nRed On Brown Interior\n.\nHarga 1.368M NET! ODO 1000!\nKondisi Hampir Kayak Baru!",
+   "status": "ready",
+   "edits": {
+    "tax": "Januari 2026"
+   },
+   "source": "admin:19.10.2026.zip",
+   "added": "2026-10-19T08:34:55"
+  },
+  {
    "id": "mercedes-benz-c300-coupe",
    "brand": "Mercedes-Benz",
    "date": "2026-10-18",
@@ -84,5 +153,5 @@ window.VELOM_DATA = {
    "added": "2026-10-18T19:27:12"
   }
  ],
- "updated": "2026-10-18T16:23:18"
+ "updated": "2026-10-19T08:39:52"
 };
