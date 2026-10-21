@@ -1,6 +1,31 @@
 window.VELOM_DATA = {
  "cars": [
   {
+   "id": "ferrari-dijual-488-pista-piloti-tailor-made",
+   "brand": "Ferrari",
+   "date": "2026-10-21",
+   "photos": [
+    "cars/ferrari-dijual-488-pista-piloti-tailor-made/05.jpg",
+    "cars/ferrari-dijual-488-pista-piloti-tailor-made/06.jpg",
+    "cars/ferrari-dijual-488-pista-piloti-tailor-made/01.jpg",
+    "cars/ferrari-dijual-488-pista-piloti-tailor-made/02.jpg",
+    "cars/ferrari-dijual-488-pista-piloti-tailor-made/03.jpg",
+    "cars/ferrari-dijual-488-pista-piloti-tailor-made/04.jpg",
+    "cars/ferrari-dijual-488-pista-piloti-tailor-made/07.jpg",
+    "cars/ferrari-dijual-488-pista-piloti-tailor-made/08.jpg",
+    "cars/ferrari-dijual-488-pista-piloti-tailor-made/09.jpg",
+    "cars/ferrari-dijual-488-pista-piloti-tailor-made/10.jpg"
+   ],
+   "spek": "Collector Item ",
+   "status": "ready",
+   "edits": {
+    "model": "Ferrari 488 Pista Piloti Tailor Made",
+    "price": "BY REQ"
+   },
+   "source": "admin:21.10.2026.zip",
+   "added": "2026-10-21T07:50:00"
+  },
+  {
    "id": "mercedes-benz-cla200-amg",
    "brand": "Mercedes-Benz",
    "date": "2026-10-21",
@@ -26,31 +51,6 @@ window.VELOM_DATA = {
    },
    "source": "admin:21.10.2026.zip",
    "added": "2026-10-21T07:53:18"
-  },
-  {
-   "id": "ferrari-dijual-488-pista-piloti-tailor-made",
-   "brand": "Ferrari",
-   "date": "2026-10-21",
-   "photos": [
-    "cars/ferrari-dijual-488-pista-piloti-tailor-made/05.jpg",
-    "cars/ferrari-dijual-488-pista-piloti-tailor-made/06.jpg",
-    "cars/ferrari-dijual-488-pista-piloti-tailor-made/01.jpg",
-    "cars/ferrari-dijual-488-pista-piloti-tailor-made/02.jpg",
-    "cars/ferrari-dijual-488-pista-piloti-tailor-made/03.jpg",
-    "cars/ferrari-dijual-488-pista-piloti-tailor-made/04.jpg",
-    "cars/ferrari-dijual-488-pista-piloti-tailor-made/07.jpg",
-    "cars/ferrari-dijual-488-pista-piloti-tailor-made/08.jpg",
-    "cars/ferrari-dijual-488-pista-piloti-tailor-made/09.jpg",
-    "cars/ferrari-dijual-488-pista-piloti-tailor-made/10.jpg"
-   ],
-   "spek": "Collector Item ",
-   "status": "ready",
-   "edits": {
-    "model": "Ferrari 488 Pista Piloti Tailor Made",
-    "price": "BY REQ"
-   },
-   "source": "admin:21.10.2026.zip",
-   "added": "2026-10-21T07:50:00"
   },
   {
    "id": "bmw-g30-520i",
@@ -207,5 +207,5 @@ window.VELOM_DATA = {
    "added": "2026-10-18T19:27:12"
   }
  ],
- "updated": "2026-10-21T07:56:09"
+ "updated": "2026-10-21T07:57:04"
 };
