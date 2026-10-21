@@ -203,11 +203,11 @@ window.VELOM_DATA = {
     "cars/bmw-740li-opulence-g12-lci-facelift-2021/11.jpg"
    ],
    "spek": "BMW 740Li OPULENCE G12 LCI FACELIFT 2021!\nTERMURAH SE-INDONESIA! MOBIL PARA BOSS BESAR!\n.\nNIK 2020 — MODEL 2021\nODO 43RB MILES\nFULL SERVICE RECORD BMW\nBlack On Brown\nPajak 03/2027\nTangan Pertama dari Baru\nAutomatic Transmission\nSurat Lengkap, Manual Book & Spare Key\n.\nENGINE & PERFORMANCE!\n3.0L Turbo Engine\nAdaptive Air Suspension\nDigital Speedometer\n.\nLUXURY FULL OPTION FEATURES!\nPanoramic Glass Roof Sky Lounge\nBMW Laser Light\nBowers & Wilkins Diamond Surround Sound\nSoft Close Vacuum Door\nFull Ambient Light Depan & Belakang\nRear Entertainment — 2 TV Belakang\nSamsung Touchscreen Tablet Controller\nFull Electric Luxury Seats\n.\nSAMSUNG TABLET CONTROL!\nPengaturan Tirai Elektrik\nBuka & Tutup Sunroof\nInterior Ambient Lighting\nPengaturan 3 Kursi\nPengaturan AC & Radio Kiri Kanan\nKontrol TV Belakang Kiri Kanan\nPengaturan Kursi dari Center Armrest\n.\nCONDITION!\nAccident & Flood Free\nEngine & Transmission All Good\nKaki-Kaki & Elektrikal Sangat Baik\nKondisi Mobil Terawat\n.\nVIDEO CALL READY!\nCHECK UNIT READY!\nTEST DRIVE READY!\nINSPEKSI READY!\nVIDEO & DETAIL UNIT SIAP DIKIRIM!\nKIRIM UNIT KE SELURUH INDONESIA!\n.\nPRICE 715JT CASH NEGO!\nPASARAN 800JT++ CASH!\nTERMURAH SE-INDONESIA!",
-   "status": "ready",
+   "status": "booked",
    "edits": {},
    "source": "BMW/17.20.2026.zip",
    "added": "2026-10-18T19:27:12"
   }
  ],
- "updated": "2026-10-21T07:45:39"
+ "updated": "2026-10-21T07:46:42"
 };
