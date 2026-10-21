@@ -1,6 +1,30 @@
 window.VELOM_DATA = {
  "cars": [
   {
+   "id": "bmw-g30-520i",
+   "brand": "BMW",
+   "date": "2026-10-20",
+   "photos": [
+    "cars/bmw-g30-520i/01.jpg",
+    "cars/bmw-g30-520i/02.jpg",
+    "cars/bmw-g30-520i/03.jpg",
+    "cars/bmw-g30-520i/04.jpg",
+    "cars/bmw-g30-520i/05.jpg",
+    "cars/bmw-g30-520i/06.jpg",
+    "cars/bmw-g30-520i/07.jpg",
+    "cars/bmw-g30-520i/08.jpg",
+    "cars/bmw-g30-520i/09.jpg",
+    "cars/bmw-g30-520i/10.jpg"
+   ],
+   "spek": "BMW G30 520i 2019!\nFULL MODS M5 + F90 HEADLAMP & TAILLIGHT!\n.\nNIK 2019 / FAKTUR 2020\nODO 35RB MILES\nService Record\nPlat B Jakarta Ganjil\nPajak 01/2026\nSunroof\n.\nFULL MODS M5 LOOK!\nF90 Headlamp\nF90 Taillight\nBodykit Depan M5\nBodykit Belakang M5\nVelg TE37\n.\nVIDEO CALL READY!\nCHECK UNIT READY!\nTEST DRIVE READY!\nINSPEKSI READY!\nVIDEO & DETAIL UNIT SIAP DIKIRIM!\nKIRIM UNIT KE SELURUH INDONESIA!\n.\nLOCATION: GADING SERPONG\n.\nPRICE 550JT NEGO DTBMW G30 520i 2019!\nFULL MODS M5 + F90 HEADLAMP & TAILLIGHT!\n.\nNIK 2019 / FAKTUR 2020\nODO 35RB MILES\nService Record\nPlat B Jakarta Ganjil\nPajak 01/2026\nSunroof\n.\nFULL MODS M5 LOOK!\nF90 Headlamp\nF90 Taillight\nBodykit Depan M5\nBodykit Belakang M5\nVelg TE37\n.\nVIDEO CALL READY!\nCHECK UNIT READY!\nTEST DRIVE READY!\nINSPEKSI READY!\nVIDEO & DETAIL UNIT SIAP DIKIRIM!\nKIRIM UNIT KE SELURUH INDONESIA!\n.\nLOCATION: GADING SERPONG\n.\nPRICE 500JT CASH",
+   "status": "ready",
+   "edits": {
+    "model": "BMW G30 520i"
+   },
+   "source": "admin:21.20.2026.zip",
+   "added": "2026-10-21T07:48:36"
+  },
+  {
    "id": "kia-grand-carnival-premiere-2023-diesel-11-seaters-org-dewas",
    "brand": "Kia",
    "date": "2026-10-19",
@@ -131,5 +155,5 @@ window.VELOM_DATA = {
    "added": "2026-10-18T19:27:12"
   }
  ],
- "updated": "2026-10-21T07:48:54"
+ "updated": "2026-10-21T07:49:39"
 };
