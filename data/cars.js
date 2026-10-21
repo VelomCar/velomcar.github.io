@@ -1,6 +1,84 @@
 window.VELOM_DATA = {
  "cars": [
   {
+   "id": "bmw-g30-520i",
+   "brand": "BMW",
+   "date": "2026-10-20",
+   "photos": [
+    "cars/bmw-g30-520i/01.jpg",
+    "cars/bmw-g30-520i/02.jpg",
+    "cars/bmw-g30-520i/03.jpg",
+    "cars/bmw-g30-520i/04.jpg",
+    "cars/bmw-g30-520i/05.jpg",
+    "cars/bmw-g30-520i/06.jpg",
+    "cars/bmw-g30-520i/07.jpg",
+    "cars/bmw-g30-520i/08.jpg",
+    "cars/bmw-g30-520i/09.jpg",
+    "cars/bmw-g30-520i/10.jpg"
+   ],
+   "spek": "BMW G30 520i 2019!\nFULL MODS M5 + F90 HEADLAMP & TAILLIGHT!\n.\nNIK 2019 / FAKTUR 2020\nODO 35RB MILES\nService Record\nPlat B Jakarta Ganjil\nPajak 01/2026\nSunroof\n.\nFULL MODS M5 LOOK!\nF90 Headlamp\nF90 Taillight\nBodykit Depan M5\nBodykit Belakang M5\nVelg TE37\n.\nVIDEO CALL READY!\nCHECK UNIT READY!\nTEST DRIVE READY!\nINSPEKSI READY!\nVIDEO & DETAIL UNIT SIAP DIKIRIM!\nKIRIM UNIT KE SELURUH INDONESIA!\n.\nLOCATION: GADING SERPONG\n.\nPRICE 550JT NEGO DTBMW G30 520i 2019!\nFULL MODS M5 + F90 HEADLAMP & TAILLIGHT!\n.\nNIK 2019 / FAKTUR 2020\nODO 35RB MILES\nService Record\nPlat B Jakarta Ganjil\nPajak 01/2026\nSunroof\n.\nFULL MODS M5 LOOK!\nF90 Headlamp\nF90 Taillight\nBodykit Depan M5\nBodykit Belakang M5\nVelg TE37\n.\nVIDEO CALL READY!\nCHECK UNIT READY!\nTEST DRIVE READY!\nINSPEKSI READY!\nVIDEO & DETAIL UNIT SIAP DIKIRIM!\nKIRIM UNIT KE SELURUH INDONESIA!\n.\nLOCATION: GADING SERPONG\n.\nPRICE 500JT CASH",
+   "status": "ready",
+   "edits": {},
+   "source": "admin:21.20.2026.zip",
+   "added": "2026-10-21T07:40:47"
+  },
+  {
+   "id": "ferrari-dijual-488-pista-piloti-tailor-made",
+   "brand": "Ferrari",
+   "date": "2026-10-21",
+   "photos": [
+    "cars/ferrari-dijual-488-pista-piloti-tailor-made/05.jpg",
+    "cars/ferrari-dijual-488-pista-piloti-tailor-made/01.jpg",
+    "cars/ferrari-dijual-488-pista-piloti-tailor-made/03.jpg",
+    "cars/ferrari-dijual-488-pista-piloti-tailor-made/04.jpg",
+    "cars/ferrari-dijual-488-pista-piloti-tailor-made/02.jpg",
+    "cars/ferrari-dijual-488-pista-piloti-tailor-made/06.jpg",
+    "cars/ferrari-dijual-488-pista-piloti-tailor-made/07.jpg",
+    "cars/ferrari-dijual-488-pista-piloti-tailor-made/08.jpg",
+    "cars/ferrari-dijual-488-pista-piloti-tailor-made/09.jpg",
+    "cars/ferrari-dijual-488-pista-piloti-tailor-made/10.jpg"
+   ],
+   "spek": "Ferrari 488 Pista Piloti Tailor Made\n\nTahun menurut informasi penjual:** NIK 2021  \nWarna:Rosso Corsa  \nNomor livery balap:22  \nLokasi:Jakarta, Indonesia\n\nFerrari 488 Pista Piloti Tailor Made merupakan supercar edisi khusus yang menggabungkan teknologi balap Ferrari dengan personalisasi eksklusif dari divisi Tailor Made. \n\nTerinspirasi oleh keberhasilan Ferrari dalam FIA World Endurance Championship, model ini menampilkan livery bendera Italia, detail khusus Piloti, serta nomor balap personal.\n\nMobil ini menggunakan mesin V8 90 derajat berkapasitas 3.902 cc dengan twin-turbo, menghasilkan tenaga maksimum 720 CV atau sekitar 710 hp dan torsi 770 Nm. Tenaga disalurkan melalui transmisi F1 dual-clutch 7-percepatan ke roda belakang.\n\nFerrari 488 Pista Piloti mampu berakselerasi dari 0 hingga 100 km/jam dalam 2,85 detik, mencapai 200 km/jam dalam 7,6 detik, dan memiliki kecepatan maksimum lebih dari 340 km/jam. Konstruksinya mengutamakan bobot ringan, aerodinamika, dan penggunaan material serat karbon.\n\nDengan karakter edisi Piloti dan personalisasi Tailor Made, model ini memiliki daya tarik tersendiri bagi kolektor Ferrari. Nomor balap pada bodinya merupakan identitas livery personal dan tidak otomatis menunjukkan urutan produksi pabrik.\n\n",
+   "status": "ready",
+   "edits": {
+    "model": "FERRARI 488 Pista Piloti Tailor Made",
+    "year": "2021",
+    "price": "3Xd",
+    "tagline": "Ferrari"
+   },
+   "source": "admin:21.10.2026.zip",
+   "added": "2026-10-21T07:29:05"
+  },
+  {
+   "id": "mercedes-benz-cla200-amg",
+   "brand": "Mercedes-Benz",
+   "date": "2026-10-21",
+   "photos": [
+    "cars/mercedes-benz-cla200-amg/01.jpg",
+    "cars/mercedes-benz-cla200-amg/02.jpg",
+    "cars/mercedes-benz-cla200-amg/03.jpg",
+    "cars/mercedes-benz-cla200-amg/04.jpg",
+    "cars/mercedes-benz-cla200-amg/05.jpg",
+    "cars/mercedes-benz-cla200-amg/06.jpg",
+    "cars/mercedes-benz-cla200-amg/07.jpg",
+    "cars/mercedes-benz-cla200-amg/08.jpg",
+    "cars/mercedes-benz-cla200-amg/09.jpg",
+    "cars/mercedes-benz-cla200-amg/10.jpg",
+    "cars/mercedes-benz-cla200-amg/11.jpg",
+    "cars/mercedes-benz-cla200-amg/12.jpg"
+   ],
+   "spek": "Mercedes Benz CLA200 AMG 2024!\nFACELIFT SUDAH GANTI MODEL C118! TERMURAH SEINDO!\n.\nNIK 2023\nOdo 29rb Miles RECORD MERCEDES BENZ\nPajak April 2027\nBlack On Black\n.\nEngine 1.300cc ( Sangat Irit Untuk Harian )\nDigital Speedometer Full Screen Headunit\nFull Ambient Light ( 100+ Warna )\nREAL AMG Bodykit\nSudah Di Lengkapi Kinetic Seat ( Menyesuaikan Postur Dalam Medan Perjalanan )\nEco , Comfort , Sport , Sport+\nFull Standart Dari Pabrik Tinggal Pakai Service Rutin\n.\nIDR 625JT NET! TERMURAH \nPASARAN 7xx JT!",
+   "status": "ready",
+   "edits": {
+    "price": "625",
+    "market": "750",
+    "color": "Black on Black",
+    "tagline": "Mercedes Benz CLA200 AMG 2024! FACELIFT SUDAH GANTI MODEL C118! TERMURAH SEINDO!"
+   },
+   "source": "admin:21.10.2026.zip",
+   "added": "2026-10-21T07:26:45"
+  },
+  {
    "id": "kia-grand-carnival-premiere-2023-diesel-11-seaters-org-dewas",
    "brand": "Kia",
    "date": "2026-10-19",
@@ -131,5 +209,5 @@ window.VELOM_DATA = {
    "added": "2026-10-18T19:27:12"
   }
  ],
- "updated": "2026-10-19T08:40:29"
+ "updated": "2026-10-21T07:42:50"
 };
