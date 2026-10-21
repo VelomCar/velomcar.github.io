@@ -1,6 +1,33 @@
 window.VELOM_DATA = {
  "cars": [
   {
+   "id": "mercedes-benz-cla200-amg",
+   "brand": "Mercedes-Benz",
+   "date": "2026-10-21",
+   "photos": [
+    "cars/mercedes-benz-cla200-amg/01.jpg",
+    "cars/mercedes-benz-cla200-amg/02.jpg",
+    "cars/mercedes-benz-cla200-amg/03.jpg",
+    "cars/mercedes-benz-cla200-amg/04.jpg",
+    "cars/mercedes-benz-cla200-amg/05.jpg",
+    "cars/mercedes-benz-cla200-amg/06.jpg",
+    "cars/mercedes-benz-cla200-amg/07.jpg",
+    "cars/mercedes-benz-cla200-amg/08.jpg",
+    "cars/mercedes-benz-cla200-amg/09.jpg",
+    "cars/mercedes-benz-cla200-amg/10.jpg",
+    "cars/mercedes-benz-cla200-amg/11.jpg",
+    "cars/mercedes-benz-cla200-amg/12.jpg"
+   ],
+   "spek": "Mercedes Benz CLA200 AMG 2024!\nFACELIFT SUDAH GANTI MODEL C118! TERMURAH SEINDO!\n.\nNIK 2023\nOdo 29rb Miles RECORD MERCEDES BENZ\nPajak April 2027\nBlack On Black\n.\nEngine 1.300cc ( Sangat Irit Untuk Harian )\nDigital Speedometer Full Screen Headunit\nFull Ambient Light ( 100+ Warna )\nREAL AMG Bodykit\nSudah Di Lengkapi Kinetic Seat ( Menyesuaikan Postur Dalam Medan Perjalanan )\nEco , Comfort , Sport , Sport+\nFull Standart Dari Pabrik Tinggal Pakai Service Rutin\n.\nIDR 650JT NET! TERMURAH \nPASARAN 7xx JT!",
+   "status": "ready",
+   "edits": {
+    "price": "650",
+    "market": "750"
+   },
+   "source": "admin:21.10.2026.zip",
+   "added": "2026-10-21T07:53:18"
+  },
+  {
    "id": "ferrari-dijual-488-pista-piloti-tailor-made",
    "brand": "Ferrari",
    "date": "2026-10-21",
@@ -180,5 +207,5 @@ window.VELOM_DATA = {
    "added": "2026-10-18T19:27:12"
   }
  ],
- "updated": "2026-10-21T07:52:44"
+ "updated": "2026-10-21T07:54:32"
 };
