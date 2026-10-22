@@ -1,6 +1,48 @@
 window.VELOM_DATA = {
  "cars": [
   {
+   "id": "mercedes-benz-a200-sedan",
+   "brand": "Mercedes-Benz",
+   "date": "2026-10-22",
+   "photos": [
+    "cars/mercedes-benz-a200-sedan/01.jpg",
+    "cars/mercedes-benz-a200-sedan/02.jpg",
+    "cars/mercedes-benz-a200-sedan/03.jpg",
+    "cars/mercedes-benz-a200-sedan/04.jpg",
+    "cars/mercedes-benz-a200-sedan/05.jpg",
+    "cars/mercedes-benz-a200-sedan/06.jpg",
+    "cars/mercedes-benz-a200-sedan/07.jpg",
+    "cars/mercedes-benz-a200-sedan/08.jpg",
+    "cars/mercedes-benz-a200-sedan/09.jpg"
+   ],
+   "spek": "Mercedes Benz A200 Sedan 2022!\nCUMAN 7.000 PERAK MILES! KONDISI MULUS BANGET!\n.\nNIK 2021\nOdo 7rb Miles Record Full Mercedes Benz\nWhite On Black Leather\nPajak 12.2026\n.\nSudah MBUX Entertaintment\nFull Digital Speedometer\nAmbient Light Interior Full Warna\nPerseneling Ganti Gigi Di Kanan Steer\n1.300cc Sangat Irit Dan Nyaman Untuk Harian!\nKinetic Seat ( Tempat Duduk Bergerak Otomatis Menyesuaikan Dengan Medan Jalan )\nEco , Comfort , Sport , Sport+\n.\nHARGA 450 JT NET! TERMURAH DI PASARAN! PASARAN 5xx Jt",
+   "status": "ready",
+   "edits": {},
+   "source": "admin:22.10.2026.zip",
+   "added": "2026-10-22T12:41:34"
+  },
+  {
+   "id": "porsche-taycan-electric-atpm-2",
+   "brand": "Porsche",
+   "date": "2026-10-22",
+   "photos": [
+    "cars/porsche-taycan-electric-atpm-2/02.jpg",
+    "cars/porsche-taycan-electric-atpm-2/01.jpg",
+    "cars/porsche-taycan-electric-atpm-2/03.jpg",
+    "cars/porsche-taycan-electric-atpm-2/04.jpg",
+    "cars/porsche-taycan-electric-atpm-2/05.jpg",
+    "cars/porsche-taycan-electric-atpm-2/06.jpg",
+    "cars/porsche-taycan-electric-atpm-2/07.jpg",
+    "cars/porsche-taycan-electric-atpm-2/08.jpg",
+    "cars/porsche-taycan-electric-atpm-2/09.jpg"
+   ],
+   "spek": "Porsche Taycan Electric ATPM 2024! \nPLAT 9 ( 1 ANGKA DIKASI ) VERY LIKE NEW! RASA BARU!\n.\nUNIT ATPM Full Warranty By Porsche Center Jakarta! \nWarranty Battery Till 2031 \nWarranty Service Till 2028\nSEMUA KLAIM AJA KE PORSCHE!\nFrozen Blue Mettalic Wall Charger Dapet!\n.\nNIK 2023\nOdo 600 PERAK/ ENAM RATUS  miles  RECORD FULL PORSCHE!\nPajak 12.2027 ( TAHUN DEPAN ) hanya 100k\nBlue On Black\n.\nNO LECET , NO REPAINT , NO REPAIR! MASI FULL SEMUANYA DARI PABRIK PORSCHE \nDurasi Jarak 100% Sampai Habis 350KM\nSport Mode , Range Mode , Launch Control\nHeadup Display\nAdaptive AirSuspension\nAmbient Light Interior\nDrive Mode Banyak Pilihan\nPower Steering Mode \nPanoramic Sunroof\n.\nPrice 2.188MILYAR NET!\nMASI RASA BARU!",
+   "status": "ready",
+   "edits": {},
+   "source": "admin:22.10.2026.zip",
+   "added": "2026-10-22T12:39:27"
+  },
+  {
    "id": "ferrari-dijual-488-pista-piloti-tailor-made",
    "brand": "Ferrari",
    "date": "2026-10-21",
@@ -207,5 +249,5 @@ window.VELOM_DATA = {
    "added": "2026-10-18T19:27:12"
   }
  ],
- "updated": "2026-10-21T07:57:56"
+ "updated": "2026-10-22T12:43:20"
 };
