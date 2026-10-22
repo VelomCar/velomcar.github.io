@@ -63,7 +63,9 @@ window.VELOM_DATA = {
    ],
    "spek": "Mercedes Benz A200 Sedan 2022!\nCUMAN 7.000 PERAK MILES! KONDISI MULUS BANGET!\n.\nNIK 2021\nOdo 7rb Miles Record Full Mercedes Benz\nWhite On Black Leather\nPajak 12.2026\n.\nSudah MBUX Entertaintment\nFull Digital Speedometer\nAmbient Light Interior Full Warna\nPerseneling Ganti Gigi Di Kanan Steer\n1.300cc Sangat Irit Dan Nyaman Untuk Harian!\nKinetic Seat ( Tempat Duduk Bergerak Otomatis Menyesuaikan Dengan Medan Jalan )\nEco , Comfort , Sport , Sport+\n.\nHARGA 460 JT NET! TERMURAH DI PASARAN! PASARAN 5xx Jt",
    "status": "ready",
-   "edits": {},
+   "edits": {
+    "price": "450"
+   },
    "source": "admin:22.10.2026.zip",
    "added": "2026-10-22T12:45:45"
   },
@@ -249,5 +251,5 @@ window.VELOM_DATA = {
    "added": "2026-10-19T08:36:55"
   }
  ],
- "updated": "2026-10-22T12:53:42"
+ "updated": "2026-10-22T12:54:35"
 };
