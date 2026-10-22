@@ -1,48 +1,6 @@
 window.VELOM_DATA = {
  "cars": [
   {
-   "id": "mercedes-benz-a200-sedan",
-   "brand": "Mercedes-Benz",
-   "date": "2026-10-22",
-   "photos": [
-    "cars/mercedes-benz-a200-sedan/01.jpg",
-    "cars/mercedes-benz-a200-sedan/02.jpg",
-    "cars/mercedes-benz-a200-sedan/03.jpg",
-    "cars/mercedes-benz-a200-sedan/04.jpg",
-    "cars/mercedes-benz-a200-sedan/05.jpg",
-    "cars/mercedes-benz-a200-sedan/06.jpg",
-    "cars/mercedes-benz-a200-sedan/07.jpg",
-    "cars/mercedes-benz-a200-sedan/08.jpg",
-    "cars/mercedes-benz-a200-sedan/09.jpg"
-   ],
-   "spek": "Mercedes Benz A200 Sedan 2022!\nCUMAN 7.000 PERAK MILES! KONDISI MULUS BANGET!\n.\nNIK 2021\nOdo 7rb Miles Record Full Mercedes Benz\nWhite On Black Leather\nPajak 12.2026\n.\nSudah MBUX Entertaintment\nFull Digital Speedometer\nAmbient Light Interior Full Warna\nPerseneling Ganti Gigi Di Kanan Steer\n1.300cc Sangat Irit Dan Nyaman Untuk Harian!\nKinetic Seat ( Tempat Duduk Bergerak Otomatis Menyesuaikan Dengan Medan Jalan )\nEco , Comfort , Sport , Sport+\n.\nHARGA 450 JT NET! TERMURAH DI PASARAN! PASARAN 5xx Jt",
-   "status": "ready",
-   "edits": {},
-   "source": "admin:22.10.2026.zip",
-   "added": "2026-10-22T12:41:34"
-  },
-  {
-   "id": "porsche-taycan-electric-atpm-2",
-   "brand": "Porsche",
-   "date": "2026-10-22",
-   "photos": [
-    "cars/porsche-taycan-electric-atpm-2/02.jpg",
-    "cars/porsche-taycan-electric-atpm-2/01.jpg",
-    "cars/porsche-taycan-electric-atpm-2/03.jpg",
-    "cars/porsche-taycan-electric-atpm-2/04.jpg",
-    "cars/porsche-taycan-electric-atpm-2/05.jpg",
-    "cars/porsche-taycan-electric-atpm-2/06.jpg",
-    "cars/porsche-taycan-electric-atpm-2/07.jpg",
-    "cars/porsche-taycan-electric-atpm-2/08.jpg",
-    "cars/porsche-taycan-electric-atpm-2/09.jpg"
-   ],
-   "spek": "Porsche Taycan Electric ATPM 2024! \nPLAT 9 ( 1 ANGKA DIKASI ) VERY LIKE NEW! RASA BARU!\n.\nUNIT ATPM Full Warranty By Porsche Center Jakarta! \nWarranty Battery Till 2031 \nWarranty Service Till 2028\nSEMUA KLAIM AJA KE PORSCHE!\nFrozen Blue Mettalic Wall Charger Dapet!\n.\nNIK 2023\nOdo 600 PERAK/ ENAM RATUS  miles  RECORD FULL PORSCHE!\nPajak 12.2027 ( TAHUN DEPAN ) hanya 100k\nBlue On Black\n.\nNO LECET , NO REPAINT , NO REPAIR! MASI FULL SEMUANYA DARI PABRIK PORSCHE \nDurasi Jarak 100% Sampai Habis 350KM\nSport Mode , Range Mode , Launch Control\nHeadup Display\nAdaptive AirSuspension\nAmbient Light Interior\nDrive Mode Banyak Pilihan\nPower Steering Mode \nPanoramic Sunroof\n.\nPrice 2.188MILYAR NET!\nMASI RASA BARU!",
-   "status": "ready",
-   "edits": {},
-   "source": "admin:22.10.2026.zip",
-   "added": "2026-10-22T12:39:27"
-  },
-  {
    "id": "ferrari-dijual-488-pista-piloti-tailor-made",
    "brand": "Ferrari",
    "date": "2026-10-21",
@@ -66,6 +24,68 @@ window.VELOM_DATA = {
    },
    "source": "admin:21.10.2026.zip",
    "added": "2026-10-21T07:50:00"
+  },
+  {
+   "id": "porsche-taycan-electric-atpm-2",
+   "brand": "Porsche",
+   "date": "2026-10-22",
+   "photos": [
+    "cars/porsche-taycan-electric-atpm-2/01.jpg",
+    "cars/porsche-taycan-electric-atpm-2/02.jpg",
+    "cars/porsche-taycan-electric-atpm-2/03.jpg",
+    "cars/porsche-taycan-electric-atpm-2/04.jpg",
+    "cars/porsche-taycan-electric-atpm-2/05.jpg",
+    "cars/porsche-taycan-electric-atpm-2/06.jpg",
+    "cars/porsche-taycan-electric-atpm-2/07.jpg",
+    "cars/porsche-taycan-electric-atpm-2/08.jpg",
+    "cars/porsche-taycan-electric-atpm-2/09.jpg"
+   ],
+   "spek": "Porsche Taycan Electric ATPM 2024! \nPLAT 9 ( 1 ANGKA DIKASI ) VERY LIKE NEW! RASA BARU!\n.\nUNIT ATPM Full Warranty By Porsche Center Jakarta! \nWarranty Battery Till 2031 \nWarranty Service Till 2028\nSEMUA KLAIM AJA KE PORSCHE!\nFrozen Blue Mettalic Wall Charger Dapet!\n.\nNIK 2023\nOdo 600 PERAK/ ENAM RATUS  miles  RECORD FULL PORSCHE!\nPajak 12.2027 ( TAHUN DEPAN ) hanya 100k\nBlue On Black\n.\nNO LECET , NO REPAINT , NO REPAIR! MASI FULL SEMUANYA DARI PABRIK PORSCHE \nDurasi Jarak 100% Sampai Habis 350KM\nSport Mode , Range Mode , Launch Control\nHeadup Display\nAdaptive AirSuspension\nAmbient Light Interior\nDrive Mode Banyak Pilihan\nPower Steering Mode \nPanoramic Sunroof\n.\nPrice 2.188MILYAR NET!\nMASI RASA BARU!",
+   "status": "ready",
+   "edits": {},
+   "source": "admin:22.10.2026.zip",
+   "added": "2026-10-22T12:46:04"
+  },
+  {
+   "id": "mercedes-benz-a200-sedan",
+   "brand": "Mercedes-Benz",
+   "date": "2026-10-22",
+   "photos": [
+    "cars/mercedes-benz-a200-sedan/01.jpg",
+    "cars/mercedes-benz-a200-sedan/02.jpg",
+    "cars/mercedes-benz-a200-sedan/03.jpg",
+    "cars/mercedes-benz-a200-sedan/04.jpg",
+    "cars/mercedes-benz-a200-sedan/05.jpg",
+    "cars/mercedes-benz-a200-sedan/06.jpg",
+    "cars/mercedes-benz-a200-sedan/07.jpg",
+    "cars/mercedes-benz-a200-sedan/08.jpg",
+    "cars/mercedes-benz-a200-sedan/09.jpg"
+   ],
+   "spek": "Mercedes Benz A200 Sedan 2022!\nCUMAN 7.000 PERAK MILES! KONDISI MULUS BANGET!\n.\nNIK 2021\nOdo 7rb Miles Record Full Mercedes Benz\nWhite On Black Leather\nPajak 12.2026\n.\nSudah MBUX Entertaintment\nFull Digital Speedometer\nAmbient Light Interior Full Warna\nPerseneling Ganti Gigi Di Kanan Steer\n1.300cc Sangat Irit Dan Nyaman Untuk Harian!\nKinetic Seat ( Tempat Duduk Bergerak Otomatis Menyesuaikan Dengan Medan Jalan )\nEco , Comfort , Sport , Sport+\n.\nHARGA 460 JT NET! TERMURAH DI PASARAN! PASARAN 5xx Jt",
+   "status": "ready",
+   "edits": {},
+   "source": "admin:22.10.2026.zip",
+   "added": "2026-10-22T12:45:45"
+  },
+  {
+   "id": "porsche-taycan-electric-atpm",
+   "brand": "Porsche",
+   "date": "2026-10-19",
+   "photos": [
+    "cars/porsche-taycan-electric-atpm/01.jpg",
+    "cars/porsche-taycan-electric-atpm/02.jpg",
+    "cars/porsche-taycan-electric-atpm/03.jpg",
+    "cars/porsche-taycan-electric-atpm/04.jpg",
+    "cars/porsche-taycan-electric-atpm/05.jpg",
+    "cars/porsche-taycan-electric-atpm/06.jpg",
+    "cars/porsche-taycan-electric-atpm/07.jpg",
+    "cars/porsche-taycan-electric-atpm/08.jpg"
+   ],
+   "spek": "Porsche Taycan Electric ATPM 2025! SUDAH ASLI FACELIFT! Beda Look Beda Velg! GA ADA YANG JUAL FACELIFT\n.\nUNIT ATPM Full Warranty By Porsche Center Jakarta! \nSudah General Checkup Di Porsche Center Jakarta! HASIL BATTERY HEALTH 100%\n.\nWarranty Battery Till 2033\nWarranty Service Till 2029\nSEMUA KLAIM AJA KE PORSCHE!\nWall Charger Dapet!\n.\nNIK 2024 , Registrasi 2025\nOdo 2.000 / 2 RIBU PERAK ( RECORD PORSCHE CENTER JAKARTA ATPM )\nPajak April 2027 ( TAHUN DEPAN ) hanya 400k\nIce Grey On Black ( Pagi White , Malam Abu Keputihan )\n.\n100% Battery Bisa Jalan 678KM ( SANGAT JAUH ) Karena Sudah Facelift\nPengisian Sudah Berbeda Dari Sebelumnya Bisa Sampai 320KW , 10-80% Hanya 18 Menit\nSudah Facelift Tampilan Look Lebih Lancip Dan Sporty\nLampu Sudah Facelift Lebih Tajem\nLampu Belakang Sudah Model Baru\nAdaptive AirSuspension\nAmbient Light Interior\nDrive Mode Banyak Pilihan\nPower Steering Mode \nPanoramic Sunroof\n.\nPrice 2.388MILYAR NET!\nBRAND NEW 3.8-4MILYAR!\nHEMAT 1.5MILYARAN!",
+   "status": "ready",
+   "edits": {},
+   "source": "admin:19.10.2026.zip",
+   "added": "2026-10-19T08:37:14"
   },
   {
    "id": "mercedes-benz-cla200-amg",
@@ -117,49 +137,6 @@ window.VELOM_DATA = {
    },
    "source": "admin:21.20.2026.zip",
    "added": "2026-10-21T07:48:36"
-  },
-  {
-   "id": "kia-grand-carnival-premiere-2023-diesel-11-seaters-org-dewas",
-   "brand": "Kia",
-   "date": "2026-10-19",
-   "photos": [
-    "cars/kia-grand-carnival-premiere-2023-diesel-11-seaters-org-dewas/01.jpg",
-    "cars/kia-grand-carnival-premiere-2023-diesel-11-seaters-org-dewas/02.jpg",
-    "cars/kia-grand-carnival-premiere-2023-diesel-11-seaters-org-dewas/03.jpg",
-    "cars/kia-grand-carnival-premiere-2023-diesel-11-seaters-org-dewas/04.jpg",
-    "cars/kia-grand-carnival-premiere-2023-diesel-11-seaters-org-dewas/05.jpg",
-    "cars/kia-grand-carnival-premiere-2023-diesel-11-seaters-org-dewas/06.jpg",
-    "cars/kia-grand-carnival-premiere-2023-diesel-11-seaters-org-dewas/07.jpg",
-    "cars/kia-grand-carnival-premiere-2023-diesel-11-seaters-org-dewas/08.jpg",
-    "cars/kia-grand-carnival-premiere-2023-diesel-11-seaters-org-dewas/09.jpg",
-    "cars/kia-grand-carnival-premiere-2023-diesel-11-seaters-org-dewas/10.jpg",
-    "cars/kia-grand-carnival-premiere-2023-diesel-11-seaters-org-dewas/11.jpg"
-   ],
-   "spek": "KIA Grand Carnival Premiere 2023 DIESEL 11 SEATERS ORG DEWASA!\n.\nNIK 2022\nPajak 08.2027\nOdo 47rb KM Record KIA\nWhite On Black 11 SEATERS!\n.\nBisa Masuk 1 Keluarga Besar Full 11 Orang! TIDAK PISAH PISAH!\nDiesel Irit Banget 1:22\nKursi 11 Penumpang\nCamera 360\nHeater Panas Kiri Kanan\nBose 12 Speaker\nDouble Panoramic Sunroof\nBisa Applecarplay & Android Auto\nSmart Power Sliding Door\nSmart PowerBackDoor\n.\nHarga 478JT AJA NET! BUAT 11 ORANG \nPasaran 5xxJT!",
-   "status": "ready",
-   "edits": {},
-   "source": "admin:19.10.2026.zip",
-   "added": "2026-10-19T08:36:55"
-  },
-  {
-   "id": "porsche-taycan-electric-atpm",
-   "brand": "Porsche",
-   "date": "2026-10-19",
-   "photos": [
-    "cars/porsche-taycan-electric-atpm/01.jpg",
-    "cars/porsche-taycan-electric-atpm/02.jpg",
-    "cars/porsche-taycan-electric-atpm/03.jpg",
-    "cars/porsche-taycan-electric-atpm/04.jpg",
-    "cars/porsche-taycan-electric-atpm/05.jpg",
-    "cars/porsche-taycan-electric-atpm/06.jpg",
-    "cars/porsche-taycan-electric-atpm/07.jpg",
-    "cars/porsche-taycan-electric-atpm/08.jpg"
-   ],
-   "spek": "Porsche Taycan Electric ATPM 2025! SUDAH ASLI FACELIFT! Beda Look Beda Velg! GA ADA YANG JUAL FACELIFT\n.\nUNIT ATPM Full Warranty By Porsche Center Jakarta! \nSudah General Checkup Di Porsche Center Jakarta! HASIL BATTERY HEALTH 100%\n.\nWarranty Battery Till 2033\nWarranty Service Till 2029\nSEMUA KLAIM AJA KE PORSCHE!\nWall Charger Dapet!\n.\nNIK 2024 , Registrasi 2025\nOdo 2.000 / 2 RIBU PERAK ( RECORD PORSCHE CENTER JAKARTA ATPM )\nPajak April 2027 ( TAHUN DEPAN ) hanya 400k\nIce Grey On Black ( Pagi White , Malam Abu Keputihan )\n.\n100% Battery Bisa Jalan 678KM ( SANGAT JAUH ) Karena Sudah Facelift\nPengisian Sudah Berbeda Dari Sebelumnya Bisa Sampai 320KW , 10-80% Hanya 18 Menit\nSudah Facelift Tampilan Look Lebih Lancip Dan Sporty\nLampu Sudah Facelift Lebih Tajem\nLampu Belakang Sudah Model Baru\nAdaptive AirSuspension\nAmbient Light Interior\nDrive Mode Banyak Pilihan\nPower Steering Mode \nPanoramic Sunroof\n.\nPrice 2.388MILYAR NET!\nBRAND NEW 3.8-4MILYAR!\nHEMAT 1.5MILYARAN!",
-   "status": "ready",
-   "edits": {},
-   "source": "admin:19.10.2026.zip",
-   "added": "2026-10-19T08:37:14"
   },
   {
    "id": "bmw-z4",
@@ -247,7 +224,30 @@ window.VELOM_DATA = {
    "edits": {},
    "source": "BMW/17.20.2026.zip",
    "added": "2026-10-18T19:27:12"
+  },
+  {
+   "id": "kia-grand-carnival-premiere-2023-diesel-11-seaters-org-dewas",
+   "brand": "Kia",
+   "date": "2026-10-19",
+   "photos": [
+    "cars/kia-grand-carnival-premiere-2023-diesel-11-seaters-org-dewas/01.jpg",
+    "cars/kia-grand-carnival-premiere-2023-diesel-11-seaters-org-dewas/02.jpg",
+    "cars/kia-grand-carnival-premiere-2023-diesel-11-seaters-org-dewas/03.jpg",
+    "cars/kia-grand-carnival-premiere-2023-diesel-11-seaters-org-dewas/04.jpg",
+    "cars/kia-grand-carnival-premiere-2023-diesel-11-seaters-org-dewas/05.jpg",
+    "cars/kia-grand-carnival-premiere-2023-diesel-11-seaters-org-dewas/06.jpg",
+    "cars/kia-grand-carnival-premiere-2023-diesel-11-seaters-org-dewas/07.jpg",
+    "cars/kia-grand-carnival-premiere-2023-diesel-11-seaters-org-dewas/08.jpg",
+    "cars/kia-grand-carnival-premiere-2023-diesel-11-seaters-org-dewas/09.jpg",
+    "cars/kia-grand-carnival-premiere-2023-diesel-11-seaters-org-dewas/10.jpg",
+    "cars/kia-grand-carnival-premiere-2023-diesel-11-seaters-org-dewas/11.jpg"
+   ],
+   "spek": "KIA Grand Carnival Premiere 2023 DIESEL 11 SEATERS ORG DEWASA!\n.\nNIK 2022\nPajak 08.2027\nOdo 47rb KM Record KIA\nWhite On Black 11 SEATERS!\n.\nBisa Masuk 1 Keluarga Besar Full 11 Orang! TIDAK PISAH PISAH!\nDiesel Irit Banget 1:22\nKursi 11 Penumpang\nCamera 360\nHeater Panas Kiri Kanan\nBose 12 Speaker\nDouble Panoramic Sunroof\nBisa Applecarplay & Android Auto\nSmart Power Sliding Door\nSmart PowerBackDoor\n.\nHarga 478JT AJA NET! BUAT 11 ORANG \nPasaran 5xxJT!",
+   "status": "ready",
+   "edits": {},
+   "source": "admin:19.10.2026.zip",
+   "added": "2026-10-19T08:36:55"
   }
  ],
- "updated": "2026-10-22T12:44:54"
+ "updated": "2026-10-22T12:47:58"
 };
