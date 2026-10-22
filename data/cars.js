@@ -1,29 +1,29 @@
 window.VELOM_DATA = {
  "cars": [
   {
-   "id": "ferrari-dijual-488-pista-piloti-tailor-made",
-   "brand": "Ferrari",
-   "date": "2026-10-21",
+   "id": "mercedes-benz-sl43-amg-2025-atpm",
+   "brand": "Mercedes-Benz",
+   "date": "2026-10-23",
    "photos": [
-    "cars/ferrari-dijual-488-pista-piloti-tailor-made/05.jpg",
-    "cars/ferrari-dijual-488-pista-piloti-tailor-made/06.jpg",
-    "cars/ferrari-dijual-488-pista-piloti-tailor-made/01.jpg",
-    "cars/ferrari-dijual-488-pista-piloti-tailor-made/02.jpg",
-    "cars/ferrari-dijual-488-pista-piloti-tailor-made/03.jpg",
-    "cars/ferrari-dijual-488-pista-piloti-tailor-made/04.jpg",
-    "cars/ferrari-dijual-488-pista-piloti-tailor-made/07.jpg",
-    "cars/ferrari-dijual-488-pista-piloti-tailor-made/08.jpg",
-    "cars/ferrari-dijual-488-pista-piloti-tailor-made/09.jpg",
-    "cars/ferrari-dijual-488-pista-piloti-tailor-made/10.jpg"
+    "cars/mercedes-benz-sl43-amg-2025-atpm/01.jpg",
+    "cars/mercedes-benz-sl43-amg-2025-atpm/02.jpg",
+    "cars/mercedes-benz-sl43-amg-2025-atpm/03.jpg",
+    "cars/mercedes-benz-sl43-amg-2025-atpm/04.jpg",
+    "cars/mercedes-benz-sl43-amg-2025-atpm/05.jpg",
+    "cars/mercedes-benz-sl43-amg-2025-atpm/06.jpg",
+    "cars/mercedes-benz-sl43-amg-2025-atpm/07.jpg",
+    "cars/mercedes-benz-sl43-amg-2025-atpm/08.jpg",
+    "cars/mercedes-benz-sl43-amg-2025-atpm/09.jpg",
+    "cars/mercedes-benz-sl43-amg-2025-atpm/10.jpg"
    ],
-   "spek": "Collector Item ",
+   "spek": "MERCEDES-BENZ SL43 AMG 2025 ATPM!\nSILVER ON BROWN (RARE COLOR!)\n2.0L TURBO MILD HYBRID!\n.\nNIK 2024 / MODEL 2025\nODO ONLY 400 MILES!\nFULL SERVICE RECORD MERCEDES-BENZ\nPlat B Jakarta\nPajak 01/2027\nSurat Lengkap + Manual Book + Spare Key\n100% PERFECT CONDITION!\n.\nTIRE COVERAGE ON SAMPAI 2027!\nWARRANTY ON SAMPAI 2028!\nFREE SERVICE ON SAMPAI 2030!\n.\nFULL SPEC!\nBurmester Premium Audio\nDiamond Stitching Interior\nMercedes-Benz MBUX\nElectric Soft Top\n2.0L Turbocharged Inline-4 Mild Hybrid\n.\nVIDEO CALL READY!\nCHECK UNIT READY!\nTEST DRIVE READY!\nINSPEKSI READY!\nVIDEO & DETAIL UNIT SIAP DIKIRIM!\nKIRIM UNIT KE SELURUH INDONESIA!\n.\nLOCATION: JAKARTA SELATAN\n.\nPRICE 2.888M CASH!\nBRAND NEW 4.350M (INDENT)!",
    "status": "ready",
    "edits": {
-    "model": "Ferrari 488 Pista Piloti Tailor Made",
-    "price": "BY REQ"
+    "model": "SL43 AMG 2025",
+    "price": "2877"
    },
-   "source": "admin:21.10.2026.zip",
-   "added": "2026-10-21T07:50:00"
+   "source": "admin:23.10.2026.zip",
+   "added": "2026-10-22T17:12:36"
   },
   {
    "id": "porsche-taycan-electric-atpm-2",
@@ -47,6 +47,26 @@ window.VELOM_DATA = {
    "added": "2026-10-22T12:46:04"
   },
   {
+   "id": "porsche-taycan-electric-atpm",
+   "brand": "Porsche",
+   "date": "2026-10-19",
+   "photos": [
+    "cars/porsche-taycan-electric-atpm/01.jpg",
+    "cars/porsche-taycan-electric-atpm/02.jpg",
+    "cars/porsche-taycan-electric-atpm/03.jpg",
+    "cars/porsche-taycan-electric-atpm/04.jpg",
+    "cars/porsche-taycan-electric-atpm/05.jpg",
+    "cars/porsche-taycan-electric-atpm/06.jpg",
+    "cars/porsche-taycan-electric-atpm/07.jpg",
+    "cars/porsche-taycan-electric-atpm/08.jpg"
+   ],
+   "spek": "Porsche Taycan Electric ATPM 2025! SUDAH ASLI FACELIFT! Beda Look Beda Velg! GA ADA YANG JUAL FACELIFT\n.\nUNIT ATPM Full Warranty By Porsche Center Jakarta! \nSudah General Checkup Di Porsche Center Jakarta! HASIL BATTERY HEALTH 100%\n.\nWarranty Battery Till 2033\nWarranty Service Till 2029\nSEMUA KLAIM AJA KE PORSCHE!\nWall Charger Dapet!\n.\nNIK 2024 , Registrasi 2025\nOdo 2.000 / 2 RIBU PERAK ( RECORD PORSCHE CENTER JAKARTA ATPM )\nPajak April 2027 ( TAHUN DEPAN ) hanya 400k\nIce Grey On Black ( Pagi White , Malam Abu Keputihan )\n.\n100% Battery Bisa Jalan 678KM ( SANGAT JAUH ) Karena Sudah Facelift\nPengisian Sudah Berbeda Dari Sebelumnya Bisa Sampai 320KW , 10-80% Hanya 18 Menit\nSudah Facelift Tampilan Look Lebih Lancip Dan Sporty\nLampu Sudah Facelift Lebih Tajem\nLampu Belakang Sudah Model Baru\nAdaptive AirSuspension\nAmbient Light Interior\nDrive Mode Banyak Pilihan\nPower Steering Mode \nPanoramic Sunroof\n.\nPrice 2.388MILYAR NET!\nBRAND NEW 3.8-4MILYAR!\nHEMAT 1.5MILYARAN!",
+   "status": "ready",
+   "edits": {},
+   "source": "admin:19.10.2026.zip",
+   "added": "2026-10-19T08:37:14"
+  },
+  {
    "id": "mercedes-benz-a200-sedan",
    "brand": "Mercedes-Benz",
    "date": "2026-10-22",
@@ -68,26 +88,6 @@ window.VELOM_DATA = {
    },
    "source": "admin:22.10.2026.zip",
    "added": "2026-10-22T12:45:45"
-  },
-  {
-   "id": "porsche-taycan-electric-atpm",
-   "brand": "Porsche",
-   "date": "2026-10-19",
-   "photos": [
-    "cars/porsche-taycan-electric-atpm/01.jpg",
-    "cars/porsche-taycan-electric-atpm/02.jpg",
-    "cars/porsche-taycan-electric-atpm/03.jpg",
-    "cars/porsche-taycan-electric-atpm/04.jpg",
-    "cars/porsche-taycan-electric-atpm/05.jpg",
-    "cars/porsche-taycan-electric-atpm/06.jpg",
-    "cars/porsche-taycan-electric-atpm/07.jpg",
-    "cars/porsche-taycan-electric-atpm/08.jpg"
-   ],
-   "spek": "Porsche Taycan Electric ATPM 2025! SUDAH ASLI FACELIFT! Beda Look Beda Velg! GA ADA YANG JUAL FACELIFT\n.\nUNIT ATPM Full Warranty By Porsche Center Jakarta! \nSudah General Checkup Di Porsche Center Jakarta! HASIL BATTERY HEALTH 100%\n.\nWarranty Battery Till 2033\nWarranty Service Till 2029\nSEMUA KLAIM AJA KE PORSCHE!\nWall Charger Dapet!\n.\nNIK 2024 , Registrasi 2025\nOdo 2.000 / 2 RIBU PERAK ( RECORD PORSCHE CENTER JAKARTA ATPM )\nPajak April 2027 ( TAHUN DEPAN ) hanya 400k\nIce Grey On Black ( Pagi White , Malam Abu Keputihan )\n.\n100% Battery Bisa Jalan 678KM ( SANGAT JAUH ) Karena Sudah Facelift\nPengisian Sudah Berbeda Dari Sebelumnya Bisa Sampai 320KW , 10-80% Hanya 18 Menit\nSudah Facelift Tampilan Look Lebih Lancip Dan Sporty\nLampu Sudah Facelift Lebih Tajem\nLampu Belakang Sudah Model Baru\nAdaptive AirSuspension\nAmbient Light Interior\nDrive Mode Banyak Pilihan\nPower Steering Mode \nPanoramic Sunroof\n.\nPrice 2.388MILYAR NET!\nBRAND NEW 3.8-4MILYAR!\nHEMAT 1.5MILYARAN!",
-   "status": "ready",
-   "edits": {},
-   "source": "admin:19.10.2026.zip",
-   "added": "2026-10-19T08:37:14"
   },
   {
    "id": "mercedes-benz-cla200-amg",
@@ -249,7 +249,32 @@ window.VELOM_DATA = {
    "edits": {},
    "source": "admin:19.10.2026.zip",
    "added": "2026-10-19T08:36:55"
+  },
+  {
+   "id": "ferrari-dijual-488-pista-piloti-tailor-made",
+   "brand": "Ferrari",
+   "date": "2026-10-21",
+   "photos": [
+    "cars/ferrari-dijual-488-pista-piloti-tailor-made/05.jpg",
+    "cars/ferrari-dijual-488-pista-piloti-tailor-made/06.jpg",
+    "cars/ferrari-dijual-488-pista-piloti-tailor-made/01.jpg",
+    "cars/ferrari-dijual-488-pista-piloti-tailor-made/02.jpg",
+    "cars/ferrari-dijual-488-pista-piloti-tailor-made/03.jpg",
+    "cars/ferrari-dijual-488-pista-piloti-tailor-made/04.jpg",
+    "cars/ferrari-dijual-488-pista-piloti-tailor-made/07.jpg",
+    "cars/ferrari-dijual-488-pista-piloti-tailor-made/08.jpg",
+    "cars/ferrari-dijual-488-pista-piloti-tailor-made/09.jpg",
+    "cars/ferrari-dijual-488-pista-piloti-tailor-made/10.jpg"
+   ],
+   "spek": "Collector Item ",
+   "status": "ready",
+   "edits": {
+    "model": "Ferrari 488 Pista Piloti Tailor Made",
+    "price": "BY REQ"
+   },
+   "source": "admin:21.10.2026.zip",
+   "added": "2026-10-21T07:50:00"
   }
  ],
- "updated": "2026-10-22T12:55:45"
+ "updated": "2026-10-22T17:15:10"
 };
