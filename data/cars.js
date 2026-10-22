@@ -30,8 +30,8 @@ window.VELOM_DATA = {
    "brand": "Porsche",
    "date": "2026-10-22",
    "photos": [
-    "cars/porsche-taycan-electric-atpm-2/01.jpg",
     "cars/porsche-taycan-electric-atpm-2/02.jpg",
+    "cars/porsche-taycan-electric-atpm-2/01.jpg",
     "cars/porsche-taycan-electric-atpm-2/03.jpg",
     "cars/porsche-taycan-electric-atpm-2/04.jpg",
     "cars/porsche-taycan-electric-atpm-2/05.jpg",
@@ -249,5 +249,5 @@ window.VELOM_DATA = {
    "added": "2026-10-19T08:36:55"
   }
  ],
- "updated": "2026-10-22T12:53:13"
+ "updated": "2026-10-22T12:53:42"
 };
