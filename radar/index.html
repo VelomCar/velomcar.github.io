@@ -1,0 +1,1258 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#050506">
+<title>Velom Radar</title>
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;900&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#050506;--bg2:#0b0b0e;--bg3:#121217;--bg4:#1b1b22;
+  --line:rgba(255,255,255,.08);--line2:rgba(255,255,255,.16);
+  --text:#f3f1ec;--mute:#8d8b93;--fire:#ff3b1f;--fire2:#ff8a1f;--ok:#3ddc84;--gold:#d9b779;--wa:#25d366;
+  --display:"Unbounded",system-ui,sans-serif;--body:"Manrope",system-ui,sans-serif;--mono:"JetBrains Mono",ui-monospace,monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--text);font:15px/1.5 var(--body);-webkit-text-size-adjust:100%}
+body{padding-bottom:calc(84px + env(safe-area-inset-bottom))}
+a{color:inherit}
+button{font:inherit;color:inherit}
+.top{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 16px;background:rgba(5,5,6,.88);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.brand{font:900 15px var(--display);letter-spacing:.05em;display:flex;align-items:center;gap:8px}
+.brand b{color:var(--fire)}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 0 rgba(61,220,132,.6);animation:ping 2s infinite}
+@keyframes ping{0%{box-shadow:0 0 0 0 rgba(61,220,132,.55)}80%,100%{box-shadow:0 0 0 9px rgba(61,220,132,0)}}
+.stock{font:500 11px var(--mono);color:var(--mute);display:flex;gap:8px;align-items:center;text-align:right}
+.icon-btn{background:none;border:1px solid var(--line2);border-radius:999px;width:30px;height:30px;cursor:pointer;color:var(--text);flex:none}
+main{max-width:760px;margin:0 auto;padding:16px}
+.tab{display:none}.tab.on{display:block;animation:fade .25s ease}
+@keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+h2{font:700 20px/1.2 var(--display);margin:6px 0 4px;letter-spacing:-.01em}
+.sub{color:var(--mute);font-size:13.5px;margin:0 0 14px}
+.card{background:var(--bg2);border:1px solid var(--line);border-radius:18px;padding:14px;margin-bottom:12px}
+.lbl{font:600 11px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--mute);margin:2px 0 8px}
+.mt{margin-top:10px}
+.mute{color:var(--mute)}
+.small{font-size:12.5px}
+.hidden{display:none!important}
+textarea,input,select{width:100%;background:var(--bg3);color:var(--text);border:1px solid var(--line2);border-radius:12px;padding:11px 12px;font:15px/1.45 var(--body)}
+textarea{resize:vertical;min-height:96px}
+textarea:focus,input:focus,select:focus{outline:2px solid var(--fire);outline-offset:-1px;border-color:transparent}
+select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--mute) 50%),linear-gradient(135deg,var(--mute) 50%,transparent 50%);background-position:calc(100% - 16px) 50%,calc(100% - 11px) 50%;background-size:5px 5px;background-repeat:no-repeat;padding-right:30px}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.grow{flex:1 1 160px;min-width:0}
+.btn{appearance:none;border:1px solid var(--line2);background:var(--bg3);color:var(--text);border-radius:999px;padding:9px 14px;font:700 13px var(--body);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:6px;text-decoration:none;white-space:nowrap;transition:transform .12s,background .15s}
+.btn:active{transform:scale(.97)}
+.btn.pri{background:var(--fire);border-color:var(--fire);color:#fff}
+.btn.wa{background:var(--wa);border-color:var(--wa);color:#04210f}
+.btn.big{padding:13px 18px;font-size:14px}
+.btn.ghost{background:none}
+.btn.sm{padding:6px 10px;font-size:12px}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.chip{font:600 11.5px var(--mono);padding:4px 9px;border-radius:999px;background:var(--bg3);border:1px solid var(--line2);color:var(--text);white-space:nowrap}
+.chip.g{color:var(--gold);border-color:rgba(217,183,121,.35)}
+.chip.ok{color:var(--ok);border-color:rgba(61,220,132,.35)}
+.chip.f{color:var(--fire2);border-color:rgba(255,138,31,.4)}
+.ex{margin-top:10px;font-size:12px;color:var(--mute);display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.ex button{background:var(--bg3);border:1px dashed var(--line2);border-radius:999px;padding:4px 10px;font-size:12px;cursor:pointer;color:var(--text)}
+.note{border-radius:14px;padding:10px 12px;font-size:13px;margin:10px 0;border:1px solid}
+.note.sell{background:rgba(255,138,31,.08);border-color:rgba(255,138,31,.35)}
+.note.info{background:var(--bg2);border-color:var(--line2);color:var(--mute)}
+.sec-t{display:flex;justify-content:space-between;align-items:baseline;margin:16px 2px 8px}
+.sec-t h3{font:700 13px var(--display);margin:0;letter-spacing:.02em}
+.sec-t span{font:11px var(--mono);color:var(--mute)}
+.res{position:relative;display:grid;grid-template-columns:84px 1fr auto;gap:12px;align-items:start;background:var(--bg2);border:1px solid var(--line);border-radius:16px;padding:10px;margin-bottom:8px;cursor:pointer;transition:border-color .15s,background .15s}
+.res.sel{border-color:var(--fire);background:linear-gradient(0deg,rgba(255,59,31,.06),rgba(255,59,31,.06)),var(--bg2)}
+.res.booked{opacity:.5;cursor:default}
+.res img{width:84px;height:84px;object-fit:cover;border-radius:11px;background:var(--bg3);display:block}
+.rt{font-weight:800;font-size:14.5px;line-height:1.25}
+.rp{font:600 13px var(--mono);margin-top:3px}
+.save{color:var(--ok);font-size:11px;margin-left:4px}
+.rm{color:var(--mute);font-size:12px;margin-top:2px}
+.why{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px}
+.why i{font-style:normal;font-size:11px;padding:2px 7px;border-radius:999px;background:var(--bg3)}
+.why i.ok{color:var(--ok)}.why i.mid{color:var(--gold)}.why i.no{color:#ff7a66}
+.score{text-align:right;font:900 18px var(--display);line-height:1}
+.score small{display:block;font:600 10px var(--mono);color:var(--mute);margin-top:4px;text-transform:uppercase;letter-spacing:.05em}
+.score.hi{color:var(--ok)}.score.md{color:var(--gold)}.score.lo{color:var(--fire2)}
+.tick{position:absolute;left:4px;top:4px;width:22px;height:22px;border-radius:50%;background:var(--fire);color:#fff;font-size:13px;display:none;align-items:center;justify-content:center;font-weight:900}
+.res.sel .tick{display:flex}
+.open{font-size:11px;color:var(--mute);text-decoration:none;margin-left:6px;white-space:nowrap}
+.empty{text-align:center;color:var(--mute);padding:26px 10px;font-size:13.5px}
+.empty b{display:block;color:var(--text);font:700 15px var(--display);margin-bottom:6px}
+.msg textarea{min-height:220px;font-size:14px;margin:10px 0}
+.seg{display:flex;background:var(--bg3);border-radius:999px;padding:3px;gap:3px}
+.seg button{flex:1;border:0;background:none;border-radius:999px;padding:8px 10px;font-weight:700;font-size:13px;cursor:pointer;color:var(--mute)}
+.seg button.on{background:var(--bg4);color:var(--text);box-shadow:inset 0 0 0 1px var(--line2)}
+.msg .opts{display:flex;gap:8px;align-items:center;margin-top:10px;font-size:13px;color:var(--mute)}
+.msg .opts select{width:auto;padding:7px 30px 7px 10px;font-size:13px}
+.tgl{display:flex;align-items:center;gap:8px;font-size:13px;margin-top:10px;cursor:pointer;user-select:none}
+.tgl input{width:18px;height:18px;padding:0;margin:0;accent-color:var(--fire);flex:none}
+.progress{height:6px;background:var(--bg3);border-radius:999px;overflow:hidden;margin:14px 0 12px}
+.progress div{height:100%;width:0;background:linear-gradient(90deg,var(--fire),var(--fire2));transition:width .3s}
+.pchip{cursor:pointer;user-select:none}
+.pchip.on{background:var(--text);color:var(--bg);border-color:var(--text)}
+.kw{display:flex;flex-direction:column;gap:8px;padding:11px 0;border-top:1px solid var(--line)}
+.kw:first-of-type{border-top:0}
+.kw-h{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.kw-q{font-weight:800;font-size:14px}
+.kw-q small{font-weight:500;color:var(--mute);margin-left:6px;font-size:11.5px}
+.kw-x{background:none;border:0;color:var(--mute);cursor:pointer;font-size:12px;padding:2px 4px}
+.chip .x{margin-left:7px;font-weight:900;opacity:.7;cursor:pointer;padding:0 2px}
+.chip .x:hover{opacity:1}
+.kw-sub{display:flex;flex-direction:column;gap:5px}
+.kw-sub .w{font:600 11px var(--mono);color:var(--mute)}
+.plinks{display:flex;gap:6px;flex-wrap:wrap}
+.plink{font:600 12px var(--body);padding:6px 11px;border-radius:999px;background:var(--bg3);border:1px solid var(--line2);text-decoration:none;color:var(--text);cursor:pointer}
+.plink.done{color:var(--ok);border-color:rgba(61,220,132,.35);background:rgba(61,220,132,.06)}
+.plink.done::before{content:"✓ "}
+.plink.alert{color:var(--mute)}
+details.help summary{cursor:pointer;font-weight:800}
+details.help ol{margin:10px 0 0;padding-left:20px;color:var(--mute);font-size:13.5px}
+details.help li{margin-bottom:6px}
+.lead{background:var(--bg2);border:1px solid var(--line);border-radius:16px;padding:12px;margin-bottom:10px}
+.lead.hot{border-color:rgba(255,138,31,.55)}
+.lead-h{display:flex;justify-content:space-between;gap:8px;align-items:baseline}
+.lead-n{font-weight:800}
+.lead-m{font:11px var(--mono);color:var(--mute)}
+.lead-t{color:var(--mute);font-size:12.5px;margin:6px 0;white-space:pre-wrap;word-break:break-word}
+.hotbox{background:rgba(255,138,31,.08);border:1px solid rgba(255,138,31,.35);border-radius:12px;padding:8px 10px;margin:8px 0;font-size:13px;display:flex;justify-content:space-between;gap:8px;align-items:center;flex-wrap:wrap}
+.lead .grid2{display:grid;grid-template-columns:120px 130px 1fr;gap:8px;margin:8px 0}
+.lead .grid2 select,.lead .grid2 input{padding:8px 10px;font-size:13px}
+.nav{position:fixed;left:0;right:0;bottom:0;z-index:30;display:flex;justify-content:center;gap:4px;padding:8px 8px calc(8px + env(safe-area-inset-bottom));background:rgba(11,11,14,.94);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid var(--line)}
+.nav button{flex:1;max-width:220px;border:0;background:none;color:var(--mute);border-radius:14px;padding:8px 6px;cursor:pointer;font:700 11.5px var(--body);display:flex;flex-direction:column;align-items:center;gap:2px;position:relative}
+.nav button span{font-size:19px;line-height:1}
+.nav button.on{color:var(--text);background:var(--bg3)}
+.badge{position:absolute;top:4px;right:calc(50% - 22px);min-width:17px;height:17px;border-radius:999px;background:var(--fire);color:#fff;font:800 10px/17px var(--body);padding:0 4px}
+#toast{position:fixed;left:50%;bottom:calc(92px + env(safe-area-inset-bottom));transform:translateX(-50%) translateY(20px);opacity:0;background:var(--text);color:var(--bg);padding:10px 16px;border-radius:999px;font-weight:700;font-size:13px;transition:.25s;pointer-events:none;z-index:50;max-width:calc(100% - 32px);text-align:center}
+#toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+dialog{background:var(--bg2);color:var(--text);border:1px solid var(--line2);border-radius:20px;padding:18px;width:min(440px,calc(100% - 32px))}
+dialog::backdrop{background:rgba(0,0,0,.7)}
+dialog h3{font:700 16px var(--display);margin:0 0 12px}
+dialog label{display:block;font-size:12px;color:var(--mute);margin:10px 0 4px}
+@media (max-width:420px){
+  .res{grid-template-columns:68px 1fr auto;gap:10px}
+  .res img{width:68px;height:68px}
+  .lead .grid2{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="brand"><i class="dot"></i>VELOM <b>RADAR</b></div>
+  <div class="stock"><span id="stockInfo">memuat stok…</span><button class="icon-btn" id="reloadBtn" title="Muat ulang stok">↻</button></div>
+</header>
+
+<main>
+  <!-- ============ COCOKKAN ============ -->
+  <section id="tab-match" class="tab on">
+    <h2>Cocokkan buyer</h2>
+    <p class="sub">Tempel postingan atau komentar orang yang lagi cari mobil. Radar langsung mencari unit yang pas dari garasi Anda dan menyiapkan pesannya.</p>
+
+    <div class="card">
+      <textarea id="q" rows="4" placeholder="Contoh: Cari BMW sedan 2019 ke atas, budget 600jt, domisili Surabaya"></textarea>
+      <div class="row mt">
+        <button class="btn" id="pasteBtn">📋 Tempel</button>
+        <button class="btn ghost" id="clearBtn">✕ Kosongkan</button>
+        <input id="buyerName" class="grow" placeholder="Nama buyer (opsional)">
+      </div>
+      <div class="ex">Coba:
+        <button data-ex="Cari BMW sedan 2019 ke atas budget 600jt, domisili Surabaya">BMW 600jt</button>
+        <button data-ex="WTB mercy convertible 2024 up, budget max 3M. Jakarta">Mercy cabrio</button>
+        <button data-ex="Rekomendasi mobil keluarga mewah 7 seater budget 500an dong">Keluarga 500an</button>
+        <button data-ex="lagi cari range rover sport budget 2M, ada yg jual?">Range Rover</button>
+      </div>
+    </div>
+
+    <div id="parsed" class="chips"></div>
+    <div id="intentNote"></div>
+    <div id="results"></div>
+
+    <div id="msgBox" class="card msg hidden">
+      <div class="seg" id="modeSeg">
+        <button data-mode="comment">💬 Balas komentar</button>
+        <button data-mode="dm">✉️ DM / WhatsApp</button>
+      </div>
+      <div class="opts">Sapaan
+        <select id="sapa"><option>Kak</option><option>Boss</option><option>Pak</option><option>Bu</option><option>Om</option><option>Gan</option></select>
+        <span id="msgHint" class="small"></span>
+      </div>
+      <label class="tgl"><input type="checkbox" id="askRole"> Tanyakan dengan sopan: user, showroom, atau mediator?</label>
+      <textarea id="msg" rows="10"></textarea>
+      <div class="row">
+        <button class="btn pri" id="copyBtn">Salin pesan</button>
+        <a class="btn wa" id="waBtn" target="_blank" rel="noopener">WhatsApp</a>
+        <button class="btn" id="varBtn">🔀 Ganti kalimat</button>
+        <button class="btn" id="saveLeadBtn">⭐ Simpan lead</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PATROLI ============ -->
+  <section id="tab-patrol" class="tab">
+    <h2>Patroli buyer</h2>
+    <p class="sub">Kata kunci dibuat otomatis dari stok Anda. Tiap tombol membuka postingan <b>terbaru</b> di platform itu. Ketemu orang yang lagi cari? Salin teksnya, lalu buka tab Cocokkan.</p>
+
+    <div class="card">
+      <div class="lbl">Platform</div>
+      <div id="platChips" class="chips"></div>
+      <div class="lbl mt">Kata pembuka</div>
+      <div id="intentChips" class="chips"></div>
+      <div class="row mt">
+        <input id="intentNew" class="grow" placeholder="Tambah kata pembuka, mis. lagi nyari">
+        <button class="btn sm" id="intentAdd">Tambah</button>
+      </div>
+      <div id="intentInfo" class="mute small mt"></div>
+      <div class="progress"><div id="progBar"></div></div>
+      <div class="row">
+        <button class="btn pri big" id="nextBtn">⚡ Patroli cepat</button>
+        <span id="nextInfo" class="mute small"></span>
+      </div>
+    </div>
+
+    <div id="kwGroups"></div>
+
+    <div class="card">
+      <div class="lbl">Tambah kata kunci sendiri</div>
+      <div class="row">
+        <input id="kwNew" class="grow" placeholder="mis. cari alphard 2023">
+        <button class="btn" id="kwAdd">Tambah</button>
+      </div>
+    </div>
+
+    <details class="card help">
+      <summary>Cara pakai paling cepat</summary>
+      <ol>
+        <li>Tekan <b>⚡ Patroli cepat</b>. Hasil terbaru terbuka di tab baru. Kembali ke sini, tekan lagi untuk lanjut ke pencarian berikutnya.</li>
+        <li>Ketemu orang yang lagi cari mobil? Tekan lama teksnya, lalu <b>Salin</b> (atau <b>Bagikan → Velom Radar</b> kalau radar sudah dipasang di HP).</li>
+        <li>Buka tab <b>Cocokkan</b>, tekan <b>Tempel</b>. Unit yang pas dan pesannya langsung muncul. Salin, lalu kirim.</li>
+        <li>Tekan <b>🔔</b> di samping kata kunci untuk memasang Google Alerts. Google akan mengirim email gratis kalau ada postingan baru yang cocok.</li>
+        <li>Tanda ✓ di-reset otomatis setiap hari.</li>
+      </ol>
+    </details>
+  </section>
+
+  <!-- ============ LEADS ============ -->
+  <section id="tab-leads" class="tab">
+    <h2>Leads</h2>
+    <p class="sub">Calon buyer yang Anda simpan. Kalau ada unit baru masuk garasi yang cocok, radar memberi tanda 🔥.</p>
+    <div class="row" style="margin-bottom:12px">
+      <select id="leadFilter" style="width:auto">
+        <option value="">Semua status</option>
+      </select>
+      <button class="btn sm" id="csvBtn">Export CSV</button>
+      <button class="btn sm" id="bakBtn">Backup</button>
+      <label class="btn sm">Restore<input type="file" id="restoreIn" accept=".json,application/json" hidden></label>
+    </div>
+    <div id="leadList"></div>
+    <p class="mute small">Data leads tersimpan di HP/browser ini saja. Tekan <b>Backup</b> secara rutin supaya aman.</p>
+  </section>
+</main>
+
+<nav class="nav">
+  <button data-tab="match" class="on"><span>🎯</span>Cocokkan</button>
+  <button data-tab="patrol"><span>📡</span>Patroli</button>
+  <button data-tab="leads"><span>⭐</span>Leads<b class="badge hidden" id="leadBadge"></b></button>
+</nav>
+
+<dialog id="leadDlg">
+  <form method="dialog" id="leadForm">
+    <h3>Simpan lead</h3>
+    <label>Nama / username</label>
+    <input id="lfName" placeholder="mis. @andi.cars">
+    <label>Ditemukan di</label>
+    <select id="lfPlat"></select>
+    <label>Link postingan (opsional)</label>
+    <input id="lfUrl" inputmode="url" placeholder="https://…">
+    <label>No. WhatsApp (opsional)</label>
+    <input id="lfPhone" inputmode="tel" placeholder="08…">
+    <label>Tipe buyer</label>
+    <select id="lfRole"></select>
+    <label>Status</label>
+    <select id="lfStatus"></select>
+    <div class="row mt" style="justify-content:flex-end">
+      <button class="btn ghost" type="button" id="lfCancel">Batal</button>
+      <button class="btn pri" type="button" id="lfOk">Simpan</button>
+    </div>
+  </form>
+</dialog>
+
+<div id="toast"></div>
+
+<script>
+(function () {
+'use strict';
+
+/* ================= Konfigurasi ================= */
+var SITE = 'https://velomcar.github.io/';
+var WA_OWN = '6287771870730';
+var WA_DISP = '+62 877-7187-0730';
+var STATUSES = ['Baru', 'Ditawari', 'Nego', 'Deal', 'Dicarikan', 'Batal'];
+var LEAD_PLATS = ['Threads', 'Facebook', 'Grup Facebook', 'Instagram', 'TikTok', 'X', 'Grup WhatsApp', 'Kaskus', 'Lainnya'];
+
+/* ================= Util ================= */
+function $(s, r) { return (r || document).querySelector(s); }
+function $$(s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); }
+var store = {
+  get: function (k, d) { try { var v = localStorage.getItem('vr-' + k); return v == null ? d : JSON.parse(v); } catch (e) { return d; } },
+  set: function (k, v) { try { localStorage.setItem('vr-' + k, JSON.stringify(v)); } catch (e) {} }
+};
+function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
+function reEsc(s) { return s.replace(/[.*+?^${}()|[\]\\\/]/g, '\\$&'); }
+function E(s) { return encodeURIComponent(s); }
+function today() { var d = new Date(); return d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate(); }
+function cap(s) { return s ? s.charAt(0).toUpperCase() + s.slice(1) : s; }
+function uid() { return Date.now().toString(36) + Math.random().toString(36).slice(2, 6); }
+var toastT;
+function toast(t) { var el = $('#toast'); el.textContent = t; el.classList.add('on'); clearTimeout(toastT); toastT = setTimeout(function () { el.classList.remove('on'); }, 2000); }
+function fmtJt(n) {
+  if (n == null) return '';
+  if (n >= 1000) return 'Rp ' + String(Math.round(n / 10) / 100).replace('.', ',') + ' M';
+  return 'Rp ' + Math.round(n) + ' Jt';
+}
+function greet() { var h = new Date().getHours(); return h < 11 ? 'pagi' : h < 15 ? 'siang' : h < 18 ? 'sore' : 'malam'; }
+function relDate(iso) {
+  var d = new Date(iso), days = Math.floor((Date.now() - d) / 864e5);
+  if (days <= 0) return 'hari ini'; if (days === 1) return 'kemarin'; if (days < 30) return days + ' hari lalu';
+  return d.toLocaleDateString('id-ID', { day: 'numeric', month: 'short' });
+}
+
+/* ================= Kamus mobil ================= */
+var BRANDS = [
+  ['Porsche', ['porsche', 'porche', 'porshe']],
+  ['Mercedes-Benz', ['mercedes-benz', 'mercedes', 'mercedez', 'mercy', 'merci', 'merc', 'benz', 'mb']],
+  ['BMW', ['bmw', 'beemer']],
+  ['Kia', ['kia']],
+  ['Land Rover', ['land rover', 'landrover', 'range rover', 'rangerover']],
+  ['Lexus', ['lexus']],
+  ['Toyota', ['toyota']],
+  ['Ferrari', ['ferrari']],
+  ['Lamborghini', ['lamborghini', 'lambo']],
+  ['McLaren', ['mclaren']],
+  ['Rolls-Royce', ['rolls-royce', 'rolls royce', 'rolls']],
+  ['Bentley', ['bentley']],
+  ['Audi', ['audi']],
+  ['Volvo', ['volvo']],
+  ['Mini', ['mini cooper', 'mini countryman']],
+  ['Tesla', ['tesla']],
+  ['Maserati', ['maserati']],
+  ['Jeep', ['wrangler', 'rubicon']],
+  ['Hyundai', ['hyundai']],
+  ['Honda', ['honda']],
+  ['Mitsubishi', ['mitsubishi']]
+];
+function M(k, b, t, n) { return { k: k, b: b, t: t, n: n }; }
+var MODELS = [
+  M(['taycan'], 'Porsche', ['ev', 'sedan', 'sport'], 'Taycan'),
+  M(['911', 'carrera', 'gt3'], 'Porsche', ['sport', 'coupe'], '911'),
+  M(['cayenne'], 'Porsche', ['suv'], 'Cayenne'),
+  M(['macan'], 'Porsche', ['suv'], 'Macan'),
+  M(['panamera'], 'Porsche', ['sedan', 'sport'], 'Panamera'),
+  M(['boxster', 'cayman', '718'], 'Porsche', ['sport', 'convertible'], '718'),
+  M(['sl43', 'sl55', 'sl63', 'sl'], 'Mercedes-Benz', ['convertible', 'sport'], 'SL'),
+  M(['a200', 'a250', 'a35', 'a-class', 'a class'], 'Mercedes-Benz', ['sedan'], 'A-Class'),
+  M(['cla200', 'cla250', 'cla35', 'cla45', 'cla'], 'Mercedes-Benz', ['sedan', 'coupe'], 'CLA'),
+  M(['c200', 'c250', 'c300', 'c43', 'c63', 'c-class', 'c class'], 'Mercedes-Benz', ['sedan'], 'C-Class'),
+  M(['e200', 'e250', 'e300', 'e350', 'e53', 'e63', 'e-class', 'e class'], 'Mercedes-Benz', ['sedan'], 'E-Class'),
+  M(['s350', 's450', 's500', 's560', 's580', 'maybach', 's-class', 's class'], 'Mercedes-Benz', ['sedan'], 'S-Class'),
+  M(['g63', 'g500', 'g-class', 'g class', 'gwagon', 'g-wagon', 'g wagon'], 'Mercedes-Benz', ['suv'], 'G-Class'),
+  M(['gle', 'gls', 'glc', 'gla', 'glb'], 'Mercedes-Benz', ['suv'], 'GL SUV'),
+  M(['amg gt'], 'Mercedes-Benz', ['sport', 'coupe'], 'AMG GT'),
+  M(['v260', 'vito', 'v-class', 'v class'], 'Mercedes-Benz', ['mpv'], 'V-Class'),
+  M(['520i', '530i', '530e', '540i', 'm5', 'g30', 'g60', '5 series', 'seri 5'], 'BMW', ['sedan'], '5 Series'),
+  M(['320i', '330i', '330e', 'm3', 'g20', '3 series', 'seri 3'], 'BMW', ['sedan'], '3 Series'),
+  M(['730li', '740li', '750li', '760li', 'i7', 'g12', 'g70', '7 series', 'seri 7'], 'BMW', ['sedan'], '7 Series'),
+  M(['m4', '430i', '440i', '4 series', 'seri 4'], 'BMW', ['sport', 'coupe'], '4 Series'),
+  M(['z4'], 'BMW', ['convertible', 'sport'], 'Z4'),
+  M(['m8', '840i', '8 series'], 'BMW', ['sport', 'coupe'], '8 Series'),
+  M(['x1'], 'BMW', ['suv'], 'X1'), M(['x3'], 'BMW', ['suv'], 'X3'), M(['x4'], 'BMW', ['suv'], 'X4'),
+  M(['x5'], 'BMW', ['suv'], 'X5'), M(['x6'], 'BMW', ['suv'], 'X6'), M(['x7'], 'BMW', ['suv'], 'X7'), M(['xm'], 'BMW', ['suv'], 'XM'),
+  M(['grand carnival', 'carnival'], 'Kia', ['mpv'], 'Carnival'),
+  M(['sorento'], 'Kia', ['suv'], 'Sorento'),
+  M(['ev6', 'ev9'], 'Kia', ['ev', 'suv'], 'EV6/EV9'),
+  M(['488', 'pista'], 'Ferrari', ['sport'], '488'),
+  M(['f8', 'tributo'], 'Ferrari', ['sport'], 'F8'),
+  M(['roma'], 'Ferrari', ['sport', 'coupe'], 'Roma'),
+  M(['portofino'], 'Ferrari', ['sport', 'convertible'], 'Portofino'),
+  M(['sf90', '296', '812', 'purosangue'], 'Ferrari', ['sport'], 'Ferrari'),
+  M(['huracan', 'aventador', 'revuelto'], 'Lamborghini', ['sport'], 'Lamborghini'),
+  M(['urus'], 'Lamborghini', ['suv', 'sport'], 'Urus'),
+  M(['alphard'], 'Toyota', ['mpv'], 'Alphard'),
+  M(['vellfire'], 'Toyota', ['mpv'], 'Vellfire'),
+  M(['land cruiser', 'lc300', 'lc200'], 'Toyota', ['suv'], 'Land Cruiser'),
+  M(['fortuner'], 'Toyota', ['suv'], 'Fortuner'),
+  M(['camry'], 'Toyota', ['sedan'], 'Camry'),
+  M(['supra'], 'Toyota', ['sport', 'coupe'], 'Supra'),
+  M(['lm350', 'lm500', 'lexus lm'], 'Lexus', ['mpv'], 'Lexus LM'),
+  M(['lx600', 'lx570', 'lx'], 'Lexus', ['suv'], 'LX'),
+  M(['rx300', 'rx350', 'rx500', 'rx'], 'Lexus', ['suv'], 'RX'),
+  M(['nx250', 'nx350', 'nx'], 'Lexus', ['suv'], 'NX'),
+  M(['es300', 'es250'], 'Lexus', ['sedan'], 'ES'),
+  M(['range rover sport', 'rr sport'], 'Land Rover', ['suv'], 'Range Rover Sport'),
+  M(['vogue', 'autobiography'], 'Land Rover', ['suv'], 'Range Rover'),
+  M(['velar'], 'Land Rover', ['suv'], 'Velar'),
+  M(['evoque'], 'Land Rover', ['suv'], 'Evoque'),
+  M(['defender'], 'Land Rover', ['suv'], 'Defender'),
+  M(['discovery'], 'Land Rover', ['suv'], 'Discovery'),
+  M(['cullinan', 'ghost', 'phantom', 'wraith', 'dawn', 'spectre'], 'Rolls-Royce', ['sedan'], 'Rolls-Royce'),
+  M(['bentayga'], 'Bentley', ['suv'], 'Bentayga'),
+  M(['continental gt', 'flying spur'], 'Bentley', ['sedan'], 'Continental'),
+  M(['model 3', 'model y', 'model s', 'model x'], 'Tesla', ['ev'], 'Tesla'),
+  M(['wrangler', 'rubicon'], 'Jeep', ['suv'], 'Wrangler'),
+  M(['pajero'], 'Mitsubishi', ['suv'], 'Pajero')
+];
+var TYPES = {
+  suv: ['suv', 'jip', 'offroad', 'off road', '4x4', 'gagah'],
+  mpv: ['mpv', 'keluarga', 'family', '7 seater', '7seater', 'seater', 'seaters', 'kursi 7', 'captain seat', 'van', 'rombongan'],
+  sedan: ['sedan', 'saloon'],
+  coupe: ['coupe', 'coupé', '2 pintu', 'dua pintu'],
+  convertible: ['cabrio', 'cabriolet', 'convertible', 'roadster', 'atap terbuka', 'kap terbuka', 'open roof'],
+  sport: ['sport', 'sporty', 'supercar', 'super car', 'kencang', 'ngebut', 'performance'],
+  ev: ['listrik', 'electric', 'elektrik', 'ev', 'bev', 'phev']
+};
+var TYPE_LABEL = { suv: 'SUV', mpv: 'MPV/Keluarga', sedan: 'Sedan', coupe: 'Coupe', convertible: 'Convertible', sport: 'Sport', ev: 'Listrik' };
+var CITIES = [
+  ['Jakarta', ['jakarta', 'jkt', 'jaksel', 'jakut', 'jakbar', 'jaktim', 'jakpus', 'dki']],
+  ['Tangerang', ['tangerang', 'tangsel', 'bsd', 'alam sutera', 'gading serpong', 'karawaci']],
+  ['Bekasi', ['bekasi']], ['Depok', ['depok']], ['Bogor', ['bogor']], ['Bandung', ['bandung', 'bdg']],
+  ['Surabaya', ['surabaya', 'sby']], ['Semarang', ['semarang', 'smg']],
+  ['Yogyakarta', ['jogja', 'yogya', 'yogyakarta', 'jogjakarta', 'diy']], ['Solo', ['solo', 'surakarta']],
+  ['Malang', ['malang']], ['Bali', ['bali', 'denpasar']], ['Medan', ['medan']], ['Makassar', ['makassar', 'makasar']],
+  ['Palembang', ['palembang']], ['Pekanbaru', ['pekanbaru']], ['Batam', ['batam']], ['Balikpapan', ['balikpapan']],
+  ['Samarinda', ['samarinda']], ['Pontianak', ['pontianak']], ['Manado', ['manado']], ['Lampung', ['lampung']],
+  ['Padang', ['padang']], ['Banjarmasin', ['banjarmasin']], ['Cirebon', ['cirebon']], ['Jambi', ['jambi']], ['Aceh', ['aceh']]
+];
+var BUY_W = ['cari', 'nyari', 'mencari', 'dicari', 'carikan', 'wtb', 'want to buy', 'butuh', 'mau beli', 'pengen beli', 'pingin beli', 'ingin beli', 'minat', 'rekomendasi', 'rekomen', 'rekom', 'saran', 'recommend', 'ada yang jual', 'ada yg jual', 'yang jual', 'yg jual', 'hunting', 'incar', 'looking for', 'budget', 'bujet', 'mau ambil', 'pengen ambil', 'pengen punya', 'mau punya', 'mau ganti'];
+var SELL_START = /^\s*(dijual|jual|wts|for sale|ready unit|ready stock|lepas|over kredit|oper kredit|take over)\b/;
+
+var reCache = {};
+function hasWord(t, w) {
+  var r = reCache[w] || (reCache[w] = new RegExp('(?:^|[^a-z0-9])' + reEsc(w) + '(?![a-z0-9])'));
+  return r.test(t);
+}
+function norm(s) {
+  return ' ' + String(s || '').toLowerCase()
+    .replace(/[’'`]/g, '')
+    .replace(/[^a-z0-9.,+\-\/ ]+/g, ' ')
+    .replace(/\b([a-z]{1,3})[\s-]+(\d{2,3})\b/g, '$1$2')
+    .replace(/\s+/g, ' ') + ' ';
+}
+function detectBrands(t) {
+  var out = [];
+  BRANDS.forEach(function (b) { if (b[1].some(function (a) { return hasWord(t, a); })) out.push(b[0]); });
+  return out;
+}
+function detectModels(t) {
+  var out = [];
+  MODELS.forEach(function (m) {
+    var hits = m.k.filter(function (a) { return hasWord(t, a); });
+    if (hits.length) out.push({ fam: m.n, alias: hits[0], aliases: hits, brand: m.b, t: m.t });
+  });
+  return out;
+}
+function detectTypes(t) {
+  var s = new Set();
+  Object.keys(TYPES).forEach(function (ty) { if (TYPES[ty].some(function (k) { return hasWord(t, k); })) s.add(ty); });
+  return s;
+}
+function detectCity(t) {
+  for (var i = 0; i < CITIES.length; i++) if (CITIES[i][1].some(function (a) { return hasWord(t, a); })) return CITIES[i][0];
+  return null;
+}
+function parsePhone(raw) {
+  var m = String(raw).match(/(?:\+?62|0)\s?8\d{1,3}[\s.\-]?\d{3,4}[\s.\-]?\d{3,5}/);
+  if (!m) return null;
+  var d = m[0].replace(/\D/g, '');
+  if (d.charAt(0) === '0') d = '62' + d.slice(1);
+  return d.length >= 10 && d.length <= 15 ? d : null;
+}
+var UNIT = '(jt|juta|jeti|m|em|miliar|milyar|milyard|miliyar|b)';
+function toJt(num, unit) {
+  unit = (unit || '').toLowerCase();
+  if (/^(m|em|miliar|milyar|milyard|miliyar|b)$/.test(unit)) { var x = parseFloat(num); return isNaN(x) ? null : x * 1000; }
+  if (/^\d{1,3}(\.\d{3})+$/.test(num)) num = num.replace(/\./g, '');
+  var n = parseFloat(num);
+  return isNaN(n) ? null : n;
+}
+function parseBudget(raw) {
+  var low = String(raw).toLowerCase();
+  var t = ' ' + low.replace(/(\d),(\d)/g, '$1.$2') + ' ';
+  var vals = [], min = null;
+  t = t.replace(/(?:rp\.?\s*)?(\d{1,3}(?:\.\d{3}){2,})(?![\d])/g, function (m, d) { vals.push(parseInt(d.replace(/\./g, ''), 10) / 1e6); return ' '; });
+  t = t.replace(new RegExp('(\\d+(?:\\.\\d+)?)\\s*' + UNIT + '?\\s*(?:-|–|s/d|sd|sampai|hingga)\\s*(\\d+(?:\\.\\d+)?)\\s*' + UNIT + '(?:an)?(?![a-z])', 'g'), function (m, a, u1, b, u2) {
+    var hi = toJt(b, u2), lo = toJt(a, u1 || u2);
+    if (hi) { vals.push(hi); min = lo; }
+    return ' ';
+  });
+  t = t.replace(new RegExp('(?:rp\\.?\\s*)?(\\d+(?:\\.\\d+)?)\\s*' + UNIT + '(?:an)?(?![a-z])', 'g'), function (m, a, u) { var v = toJt(a, u); if (v) vals.push(v); return ' '; });
+  t.replace(/(budget|bujet|budjet|dana|max|maks|maksimal|dibawah|di bawah|under|kisaran|sekitar|harga)\s*(?:di\s*)?(?:rp\.?\s*)?(\d+(?:\.\d+)?)(?:an)?(?![\d.]*\s*(?:rb|ribu|km|%|th|thn|tahun|seat|cc))/g, function (m, w, a) {
+    var n = parseFloat(a);
+    if (n >= 1990 && n <= 2035) return m;
+    if (n > 0 && n <= 20) vals.push(n * 1000); else if (n >= 50 && n < 10000) vals.push(n);
+    return m;
+  });
+  if (!vals.length) return { budget: null, budgetMin: null, budgetStrict: false };
+  return { budget: Math.max.apply(null, vals), budgetMin: min, budgetStrict: /(dibawah|di bawah|\bmax|\bmaks|under|tidak lebih|gak lebih|ga lebih)/.test(low) };
+}
+function parseYear(raw) {
+  var ys = [], re = /(?:^|[^\d.])((?:199|20[0-3])\d)(?![\d.])(?!\s*(?:jt|juta|cc))/g, m, maxY = new Date().getFullYear() + 1;
+  var s = String(raw).toLowerCase();
+  while ((m = re.exec(s))) { var y = +m[1]; if (y >= 1990 && y <= maxY) ys.push(y); }
+  return ys.length ? Math.min.apply(null, ys) : null;
+}
+function detectIntent(raw, t) {
+  if (SELL_START.test(String(raw).toLowerCase())) return 'seller';
+  if (BUY_W.some(function (w) { return hasWord(t, w); })) return 'buyer';
+  if (/\b(dijual|wts|for sale|jual)\b/.test(t)) return 'seller';
+  return null;
+}
+function parseNeed(raw) {
+  var t = norm(raw);
+  var models = detectModels(t);
+  var brands = new Set(detectBrands(t));
+  models.forEach(function (m) { brands.add(m.brand); });
+  var b = parseBudget(raw);
+  // kata di nama model (mis. "sport" di "range rover sport") bukan permintaan tipe
+  var tt = t;
+  models.forEach(function (m) { m.aliases.forEach(function (a) { tt = tt.split(a).join(' '); }); });
+  return {
+    raw: raw, models: models, brands: brands, types: detectTypes(tt),
+    budget: b.budget, budgetMin: b.budgetMin, budgetStrict: b.budgetStrict,
+    yearMin: parseYear(raw), city: detectCity(t), phone: parsePhone(raw), intent: detectIntent(raw, t), role: detectRole(t)
+  };
+}
+var ROLES = ['Belum tahu', 'User', 'Showroom', 'Mediator'];
+function detectRole(t) {
+  if (/(showroom|dealer)/.test(t)) return 'Showroom';
+  if (/(mediator|makelar|broker|perantara)/.test(t)) return 'Mediator';
+  if (/(user langsung|end user|enduser|pemakai langsung|pakai sendiri|pemakaian pribadi|(buat|untuk) (saya|sy|aku|istri|suami|anak|keluarga|pribadi|kantor|orang tua|ortu))/.test(t)) return 'User';
+  return null;
+}
+function hasCriteria(n) { return !!(n && (n.models.length || n.brands.size || n.types.size || n.budget || n.yearMin)); }
+function needText(n) {
+  var p = [];
+  if (n.models.length) {
+    n.models.forEach(function (m) { p.push((p.length ? '' : shortBrandName(m.brand) + ' ') + (m.alias.length <= 4 ? m.alias.toUpperCase() : m.alias.split(' ').map(cap).join(' '))); });
+  } else if (n.brands.size) p.push(Array.from(n.brands).map(shortBrandName).join('/'));
+  var NL = { suv: 'SUV', mpv: 'keluarga', sedan: 'sedan', coupe: 'coupe', convertible: 'convertible', sport: 'sport', ev: 'listrik' };
+  if (n.types.size) p.push((p.length ? '' : 'mobil ') + Array.from(n.types).map(function (t) { return NL[t]; }).join(' '));
+  if (!p.length) p.push('mobil');
+  if (n.yearMin) p.push(n.yearMin + ' ke atas');
+  if (n.budget) p.push('budget ' + fmtJt(n.budget));
+  return p.join(' ').replace(/\s+/g, ' ').trim();
+}
+function shortBrandName(b) { return b === 'Mercedes-Benz' ? 'Mercedes' : b; }
+
+/* ================= Stok ================= */
+var CARS = [], BY_ID = {}, UPDATED = null;
+var COLOR_RE = /(black|white|grey|gray|blue|red|silver|green|brown|orange|yellow|beige|cream|navy|maroon|gold|hitam|putih|abu|biru|merah|hijau|coklat|cokelat|kuning|oranye|krem|emas)/i;
+function cleanTitle(t, brand) {
+  t = String(t || '').replace(/^(\S+)\s+\1\b/i, '$1').trim();
+  var b0 = (brand || '').split(/[\s-]/)[0].toLowerCase();
+  if (b0 && t.toLowerCase().indexOf(b0) === -1) t = brand + ' ' + t;
+  return t;
+}
+function indexCar(c) {
+  var i = c.info;
+  if (!i && window.VelomParse) { try { i = window.VelomParse.parse(c.spek, c.edits); } catch (e) { i = null; } }
+  i = i || {};
+  var t = norm([i.brand, i.title, i.model, i.tagline].join(' '));
+  var brand = detectBrands(t)[0] || i.brand || c.brand || '';
+  var models = detectModels(t);
+  var types = detectTypes(norm([i.title, i.model].join(' ')));
+  models.forEach(function (m) { m.t.forEach(function (x) { types.add(x); }); });
+  var aliases = new Set(), fams = new Set();
+  models.forEach(function (m) { fams.add(m.fam); m.aliases.forEach(function (a) { aliases.add(a); }); });
+  var year = parseInt(i.year, 10) || null;
+  var title = cleanTitle(i.title || c.id, brand);
+  var name = title + (year && title.indexOf(String(year)) === -1 ? ' ' + year : '');
+  var color = i.color && i.color.length < 45 && COLOR_RE.test(i.color) && !/[!()]/.test(i.color) ? i.color : null;
+  return {
+    id: c.id, status: String(c.status || 'ready').toLowerCase(), added: c.added || c.date || '',
+    brand: brand, title: title, name: name, year: year, price: typeof i.price === 'number' ? i.price : null,
+    priceText: i.priceText || 'Harga by request', priceNote: i.priceNote && i.priceNote.length <= 20 && !/\d/.test(i.priceNote) ? i.priceNote : '', marketText: i.marketText, saveText: i.saveText,
+    odo: i.odo, color: color, tax: i.tax, trans: i.trans, badges: i.badges || [],
+    photo: c.photos && c.photos[0] ? SITE + encodeURI(c.photos[0]) : '',
+    link: SITE + '#/mobil/' + c.id,
+    models: models, aliases: aliases, fams: fams, types: types
+  };
+}
+function loadScript(src) {
+  return new Promise(function (res, rej) {
+    var s = document.createElement('script');
+    s.src = src; s.onload = function () { s.remove(); res(); }; s.onerror = function () { s.remove(); rej(); };
+    document.head.appendChild(s);
+  });
+}
+// parser.js dari website Velom: mengubah teks spek jadi harga, tahun, odo, dll. (sama persis dengan website)
+function loadStock(manual) {
+  if (window.VelomParse) return loadCars(manual);
+  loadScript(SITE + 'assets/js/parser.js?v=' + Math.floor(Date.now() / 36e5)).then(function () { loadCars(manual); }, function () { loadCars(manual); });
+}
+function loadCars(manual) {
+  $('#stockInfo').textContent = 'memuat stok…';
+  var s = document.createElement('script');
+  s.src = SITE + 'data/cars.js?v=' + Date.now();
+  s.onload = function () {
+    var d = window.VELOM_DATA || {};
+    CARS = (d.cars || []).map(indexCar).filter(function (c) { return !/sold|terjual/.test(c.status); });
+    BY_ID = {}; CARS.forEach(function (c) { BY_ID[c.id] = c; });
+    UPDATED = d.updated;
+    var ready = CARS.filter(function (c) { return c.status === 'ready'; }).length;
+    var up = UPDATED ? new Date(UPDATED).toLocaleDateString('id-ID', { day: 'numeric', month: 'short' }) : '';
+    $('#stockInfo').textContent = ready + ' unit ready' + (up ? ' · ' + up : '');
+    store.set('stockCache', d);
+    if (manual) toast('Stok diperbarui');
+    afterStock();
+    s.remove();
+  };
+  s.onerror = function () {
+    var d = store.get('stockCache', null);
+    if (d && !CARS.length) {
+      CARS = (d.cars || []).map(indexCar); BY_ID = {}; CARS.forEach(function (c) { BY_ID[c.id] = c; });
+      $('#stockInfo').textContent = 'offline · stok tersimpan';
+      afterStock();
+    } else $('#stockInfo').textContent = 'gagal memuat stok';
+    toast('Tidak bisa memuat stok. Cek internet.');
+    s.remove();
+  };
+  document.head.appendChild(s);
+}
+function afterStock() { runMatch(true); renderPatrol(); renderLeads(); }
+
+/* ================= Skor kecocokan ================= */
+function scoreCar(n, car) {
+  var got = 0, max = 0, why = [], over = false, typeMiss = false;
+  if (n.models.length) {
+    max += 50;
+    var exact = n.models.filter(function (m) { return car.aliases.has(m.alias); })[0];
+    var fam = n.models.filter(function (m) { return car.fams.has(m.fam); })[0];
+    if (exact) { got += 50; why.push(['ok', 'Model ' + exact.alias.toUpperCase()]); }
+    else if (fam) { got += 40; why.push(['ok', 'Seri ' + fam.fam]); }
+    else if (n.brands.has(car.brand)) { got += 20; why.push(['mid', car.brand + ', model beda']); }
+    else why.push(['no', 'Model beda']);
+  } else if (n.brands.size) {
+    max += 45;
+    if (n.brands.has(car.brand)) { got += 45; why.push(['ok', car.brand]); } else why.push(['no', 'Brand beda']);
+  }
+  if (n.types.size) {
+    max += 20;
+    var hit = Array.from(n.types).filter(function (t) { return car.types.has(t); });
+    if (hit.length) { got += 20 * Math.min(1, hit.length / Math.min(n.types.size, 2)); why.push(['ok', hit.map(function (t) { return TYPE_LABEL[t]; }).join(', ')]); }
+    else { typeMiss = true; why.push(['no', 'Tipe beda']); }
+  }
+  if (n.budget) {
+    max += 25;
+    if (car.price == null) { got += 8; why.push(['mid', 'Harga by request']); }
+    else if (car.price <= n.budget) { got += 25; why.push(['ok', 'Masuk budget']); }
+    else if (car.price <= n.budget * (n.budgetStrict ? 1.06 : 1.15)) { got += 12; why.push(['mid', '+' + fmtJt(car.price - n.budget).replace('Rp ', '') + ' dari budget, bisa nego']); }
+    else { over = true; why.push(['no', 'Di atas budget']); }
+  }
+  if (n.yearMin) {
+    max += 10;
+    if (car.year && car.year >= n.yearMin) { got += 10; why.push(['ok', 'Tahun ' + car.year]); }
+    else if (car.year && car.year === n.yearMin - 1) { got += 4; why.push(['mid', 'Tahun ' + car.year]); }
+    else why.push(['no', 'Tahun ' + (car.year || '?')]);
+  }
+  if (!max) return null;
+  var pct = Math.round(got / max * 100);
+  if (over) pct = Math.min(pct, 45);
+  if (typeMiss) pct = Math.min(pct, (n.models.length || n.brands.size) && n.brands.has(car.brand) ? 64 : 50);
+  if (car.status !== 'ready') { pct = Math.round(pct * 0.6); why.unshift(['no', car.status.toUpperCase()]); }
+  return { car: car, pct: pct, why: why };
+}
+function matchAll(n, minPct) {
+  var out = CARS.map(function (c) { return scoreCar(n, c); }).filter(function (r) { return r && r.pct >= minPct; });
+  out.sort(function (a, b) {
+    if (b.pct !== a.pct) return b.pct - a.pct;
+    if (n.budget) return (b.car.price || 0) - (a.car.price || 0);
+    return String(b.car.added).localeCompare(String(a.car.added));
+  });
+  return out;
+}
+
+/* ================= Tab Cocokkan ================= */
+var need = null, results = [], alts = [], selected = new Set(), variant = 0, activeLeadId = null;
+var msgMode = store.get('msgMode', 'dm');
+
+function runMatch(keepSel) {
+  var raw = $('#q').value.trim();
+  if (!raw) {
+    need = null; results = []; alts = []; selected = new Set();
+    $('#parsed').innerHTML = ''; $('#intentNote').innerHTML = '';
+    $('#results').innerHTML = '<div class="empty"><b>Siap membidik 🎯</b>Tempel teks postingan buyer di atas, atau coba salah satu contoh.</div>';
+    $('#msgBox').classList.add('hidden');
+    return;
+  }
+  need = parseNeed(raw);
+  results = []; alts = [];
+  if (hasCriteria(need)) {
+    results = matchAll(need, 55);
+    var readyHits = results.filter(function (r) { return r.car.status === 'ready'; });
+    if (!readyHits.length) {
+      // alternatif: tipe dari model yang dicari (mis. Range Rover → SUV), tanpa syarat brand
+      var lt = new Set(need.types);
+      need.models.forEach(function (m) { m.t.forEach(function (x) { if (x !== 'sport' || !lt.size) lt.add(x); }); });
+      var loose = Object.assign({}, need, { models: [], brands: new Set(), types: lt });
+      if (hasCriteria(loose)) alts = matchAll(loose, 60).filter(function (r) { return r.car.status === 'ready'; }).slice(0, 3);
+    }
+  }
+  if (!keepSel) {
+    selected = new Set();
+    var first = results.filter(function (r) { return r.car.status === 'ready'; })[0];
+    if (first) selected.add(first.car.id);
+  } else {
+    selected.forEach(function (id) { if (!BY_ID[id]) selected.delete(id); });
+  }
+  renderParsed(); renderResults(); renderMsg();
+}
+
+function renderParsed() {
+  var n = need, c = [];
+  if (n.intent === 'buyer') c.push('<span class="chip ok">● Pembeli</span>');
+  else if (n.intent === 'seller') c.push('<span class="chip f">● Penjual</span>');
+  n.models.forEach(function (m) { c.push('<span class="chip g">' + esc(m.brand) + ' ' + esc(m.alias.toUpperCase()) + '</span>'); });
+  if (!n.models.length) n.brands.forEach(function (b) { c.push('<span class="chip g">' + esc(b) + '</span>'); });
+  n.types.forEach(function (t) { c.push('<span class="chip">' + TYPE_LABEL[t] + '</span>'); });
+  if (n.budget) c.push('<span class="chip">' + (n.budgetStrict ? '≤ ' : '± ') + fmtJt(n.budget) + '</span>');
+  if (n.yearMin) c.push('<span class="chip">' + n.yearMin + '+</span>');
+  if (n.city) c.push('<span class="chip">📍 ' + esc(n.city) + '</span>');
+  if (n.phone) c.push('<span class="chip ok">📞 ' + esc(n.phone) + '</span>');
+  if (n.role) c.push('<span class="chip g">👤 ' + n.role + '</span>');
+  $('#parsed').innerHTML = c.join('');
+  $('#parsed').style.marginBottom = c.length ? '4px' : '0';
+  var note = '';
+  if (n.intent === 'seller') note = '<div class="note sell">📦 Sepertinya ini postingan <b>penjual</b>, bukan pembeli. Bisa jadi sumber unit untuk garasi Anda. Pesannya diubah jadi tanya detail unit.</div>';
+  else if (!hasCriteria(n)) note = '<div class="note info">Belum terbaca merek, tipe, atau budget-nya. Tambahkan sendiri di kotak atas, misalnya “budget 1M” atau “SUV”.</div>';
+  $('#intentNote').innerHTML = note;
+}
+
+function resCard(r, isAlt) {
+  var c = r.car, cls = r.pct >= 85 ? 'hi' : r.pct >= 65 ? 'md' : 'lo';
+  var lbl = isAlt ? 'Alternatif' : r.pct >= 85 ? 'Sangat cocok' : r.pct >= 65 ? 'Cocok' : 'Lumayan';
+  var meta = [c.odo ? 'Odo ' + c.odo : '', c.color, c.tax ? 'Pajak ' + c.tax : ''].filter(Boolean).join(' · ');
+  return '<div class="res' + (selected.has(c.id) ? ' sel' : '') + (c.status !== 'ready' ? ' booked' : '') + '" data-id="' + esc(c.id) + '">' +
+    '<span class="tick">✓</span>' +
+    (c.photo ? '<img loading="lazy" alt="" src="' + esc(c.photo) + '">' : '<img alt="">') +
+    '<div><div class="rt">' + esc(c.name) + '</div>' +
+    '<div class="rp">' + esc(c.priceText) + (c.saveText ? '<span class="save">hemat ' + esc(c.saveText.replace('Rp ', '')) + '</span>' : '') +
+    '<a class="open" href="' + esc(c.link) + '" target="_blank" rel="noopener">lihat ↗</a></div>' +
+    (meta ? '<div class="rm">' + esc(meta) + '</div>' : '') +
+    '<div class="why">' + r.why.map(function (w) { return '<i class="' + w[0] + '">' + (w[0] === 'ok' ? '✓ ' : w[0] === 'mid' ? '~ ' : '✕ ') + esc(w[1]) + '</i>'; }).join('') + '</div></div>' +
+    '<div class="score ' + cls + '">' + r.pct + '%<small>' + lbl + '</small></div></div>';
+}
+
+function renderResults() {
+  var h = '';
+  if (!hasCriteria(need)) { $('#results').innerHTML = ''; return; }
+  if (results.length) {
+    h += '<div class="sec-t"><h3>Unit cocok</h3><span>ketuk untuk pilih · bisa lebih dari satu</span></div>';
+    h += results.map(function (r) { return resCard(r, false); }).join('');
+  }
+  if (!results.filter(function (r) { return r.car.status === 'ready'; }).length) {
+    h += '<div class="note info">Belum ada unit yang pas di garasi. Pesannya otomatis menawarkan <b>“bisa kami carikan”</b>, supaya buyer tetap jadi lead Anda.</div>';
+    if (alts.length) {
+      h += '<div class="sec-t"><h3>Alternatif di budget/tipe yang sama</h3><span>opsional</span></div>';
+      h += alts.map(function (r) { return resCard(r, true); }).join('');
+    }
+  }
+  $('#results').innerHTML = h;
+}
+
+function carBlock(c) {
+  var L = ['🚗 *' + c.name + '*'];
+  L.push('💰 ' + c.priceText + (c.priceNote ? ' (' + c.priceNote + ')' : ''));
+  if (c.marketText && c.saveText) L.push('📉 Pasaran ' + c.marketText + ', hemat ' + c.saveText);
+  var meta = [c.odo ? 'Odo ' + c.odo : '', c.color, c.tax ? 'Pajak ' + c.tax : ''].filter(Boolean).join(' · ');
+  if (meta) L.push('📍 ' + meta);
+  if (c.badges.length) L.push('✅ ' + c.badges.slice(0, 4).join(' · '));
+  L.push('🔗 ' + c.link);
+  return L.join('\n');
+}
+function pick(arr) { return arr[variant % arr.length]; }
+
+// Pertanyaan sopan: buyer/penjual ini user langsung, showroom, atau mediator?
+function roleQuestion(S, seller) {
+  if (seller) return pick([
+    'Mohon maaf sebelumnya, boleh saya tahu ' + S + ' pemilik langsung (tangan pertama), dari showroom, atau rekan mediator? 🙏',
+    'Izin bertanya ' + S + ' 🙏 unit ini milik pribadi, stok showroom, atau titipan rekan mediator? Supaya saya tidak salah menyampaikan ke buyer.'
+  ]);
+  return pick([
+    'Mohon maaf sebelumnya, boleh saya tahu ' + S + ' mencari untuk dipakai sendiri (user), atau dari showroom / rekan mediator? Supaya info dan harga yang saya berikan pas 🙏',
+    'Izin bertanya ' + S + ' 🙏 apakah ' + S + ' user langsung, dari showroom, atau rekan mediator? Biar penawarannya bisa saya sesuaikan.',
+    'Kalau berkenan, boleh info ' + S + ' ini untuk pemakaian pribadi, atau untuk showroom / mediator? Mohon maaf bila kurang berkenan 🙏'
+  ]);
+}
+
+function buildMsg() {
+  var S = $('#sapa').value, nm = $('#buyerName').value.trim(), N = nm ? ' ' + nm : '';
+  var nd = needText(need), city = need.city;
+  var sel = Array.from(selected).map(function (id) { return BY_ID[id]; }).filter(Boolean);
+  var resIds = new Set(results.map(function (r) { return r.car.id; }));
+  var offer = sel.filter(function (c) { return resIds.has(c.id); });
+  var altSel = sel.filter(function (c) { return !resIds.has(c.id); });
+  var kirim = city ? 'bisa dikirim ke ' + city : 'bisa dikirim ke seluruh Indonesia';
+  var sign = '\n\n— Velom Car\n' + SITE;
+
+  var askRole = $('#askRole').checked && !need.role;
+  var RQ = askRole ? '\n\n' + roleQuestion(S, need.intent === 'seller') : '';
+
+  if (need.intent === 'seller') {
+    if (msgMode === 'comment') return pick([
+      'Halo ' + S + ', unitnya masih ada? Boleh info harga net, odo, pajak & lokasinya? Saya Velom Car, bisa bantu pasarkan 🙏',
+      'Izin ' + S + ' 🙏 unit masih ready? Boleh minta detail harga net & lokasi via DM. Saya mediator Velom Car.'
+    ]);
+    return pick([
+      'Halo ' + S + N + ' 👋 saya dari Velom Car (mediator mobil).\nUnit yang ' + S + ' posting masih ada? Boleh info:\n• Harga net\n• Odometer & service record\n• Pajak & kelengkapan surat\n• Lokasi unit\n\nKami punya jaringan buyer & bisa bantu pasarkan.',
+      'Selamat ' + greet() + ' ' + S + N + ', izin tanya unitnya 🙏\nMasih ready? Kalau boleh minta foto/video terbaru, harga net, odo, pajak & lokasi.\nSaya Velom Car, mediator mobil, siap bantu carikan buyer.'
+    ]) + RQ + '\n\nTerima kasih 🙏' + sign;
+  }
+
+  if (offer.length) {
+    if (msgMode === 'comment') {
+      if (offer.length === 1) {
+        var c = offer[0], save = c.saveText ? ' (di bawah pasaran, hemat ' + c.saveText + ')' : '';
+        return pick([
+          'Halo ' + S + ', kebetulan ada ' + c.name + ' ready, ' + c.priceText + save + '. Foto & detail: ' + c.link + ' 🙏',
+          S + ', ada unit ' + c.name + ', ' + c.priceText + save + ', surat lengkap & ' + kirim + '. Cek di sini ya: ' + c.link,
+          'Izin info ' + S + ' 🙏 ' + c.name + ' ready, ' + c.priceText + save + '. Detail lengkap: ' + c.link + '. Boleh DM/WA ' + WA_DISP
+        ]);
+      }
+      var names = offer.map(function (c) { return c.name + ' (' + c.priceText + ')'; }).join(', ');
+      return pick([
+        'Halo ' + S + ', untuk ' + nd + ' kebetulan ada beberapa unit ready: ' + names + '. Lihat semua di ' + SITE + ' atau DM ya 🙏',
+        'Izin info ' + S + ' 🙏 ada ' + offer.length + ' unit yang pas: ' + names + '. Detail & foto di ' + SITE + ', boleh WA ' + WA_DISP
+      ]);
+    }
+    var open = pick([
+      'Halo ' + S + N + ' 👋 saya dari Velom Car.\nLihat ' + S + ' lagi cari ' + nd + ', kebetulan ada unit yang pas:',
+      'Selamat ' + greet() + ' ' + S + N + ', izin menawarkan 🙏\nUntuk kebutuhan ' + nd + ', kami ada unit ready:',
+      'Halo ' + S + N + '! Velom Car di sini.\nSesuai yang ' + S + ' cari (' + nd + '), ini unit kami:'
+    ]);
+    var close = pick([
+      'Harga cash masih bisa nego sopan, unit ' + kirim + '. Mau saya kirimkan video unitnya?',
+      'Bisa lihat langsung atau video call unit, ' + kirim + '. Kapan ' + S + ' ada waktu?',
+      'Kalau cocok, saya bantu cek unit & surat-suratnya dulu. Mau info lebih lanjut, ' + S + '?'
+    ]);
+    return open + '\n\n' + offer.map(carBlock).join('\n\n') + RQ + '\n\n' + close + sign;
+  }
+
+  // Tidak ada unit cocok: tawarkan dicarikan
+  if (msgMode === 'comment') return pick([
+    'Halo ' + S + ', untuk ' + nd + ' bisa kami bantu carikan dari jaringan showroom partner, biasanya di bawah harga pasaran. Boleh DM ya 🙏',
+    'Izin bantu ' + S + ' 🙏 Velom Car bisa carikan ' + nd + ', unit terkurasi & ' + kirim + '. Boleh WA ' + WA_DISP
+  ]);
+  var m = pick([
+    'Halo ' + S + N + ' 👋 saya dari Velom Car.\nLihat ' + S + ' lagi cari ' + nd + '. Saat ini unit itu belum ada di garasi kami, tapi kami bisa bantu carikan dari jaringan showroom partner, biasanya di bawah harga pasaran.\n\nBoleh info tahun, warna & spek yang diincar? Nanti saya kabari begitu dapat unitnya 🙏',
+    'Selamat ' + greet() + ' ' + S + N + ' 🙏\nUntuk ' + nd + ', Velom Car bisa bantu carikan. Unit terkurasi, surat lengkap, ' + kirim + '.\n\nBoleh share kriteria detailnya (tahun, warna, odo maksimal)? Saya mulai carikan hari ini.'
+  ]);
+  m += RQ;
+  if (altSel.length) m += '\n\nSementara itu, mungkin ' + S + ' tertarik juga:\n\n' + altSel.map(carBlock).join('\n\n');
+  return m + sign;
+}
+
+function renderMsg() {
+  if (!need) { $('#msgBox').classList.add('hidden'); return; }
+  $('#msgBox').classList.remove('hidden');
+  $$('#modeSeg button').forEach(function (b) { b.classList.toggle('on', b.dataset.mode === msgMode); });
+  var text = buildMsg();
+  $('#msg').value = text;
+  var phone = need.phone || (activeLeadId && (getLead(activeLeadId) || {}).phone);
+  $('#waBtn').href = phone ? 'https://wa.me/' + phone + '?text=' + E(text) : 'https://wa.me/?text=' + E(text);
+  $('#waBtn').textContent = phone ? 'Kirim ke WA buyer' : 'Bagikan via WA';
+  var n = selected.size;
+  $('#msgHint').textContent = need.intent === 'seller' ? 'template penjual' : n ? n + ' unit dipilih' : 'mode “dicarikan”';
+  var tg = $('.tgl');
+  tg.classList.toggle('hidden', msgMode === 'comment');
+  tg.lastChild.textContent = need.role ? ' Sudah terbaca: ' + need.role + ' (tidak perlu ditanyakan)' : ' Tanyakan dengan sopan: user, showroom, atau mediator?';
+  $('#askRole').disabled = !!need.role;
+}
+
+/* ================= Tab Patroli ================= */
+var PLATFORMS = [
+  { id: 'threads', name: 'Threads', url: function (q) { return 'https://www.threads.com/search?q=' + E(q) + '&serp_type=default&filter=recent'; } },
+  { id: 'facebook', name: 'Facebook', url: function (q) { return 'https://www.facebook.com/search/posts/?q=' + E(q) + '&filters=' + E(btoa(JSON.stringify({ 'recent_posts:0': JSON.stringify({ name: 'recent_posts', args: '' }) }))); } },
+  { id: 'instagram', name: 'Instagram', url: function (q) { return 'https://www.instagram.com/explore/search/keyword/?q=' + E(q); } },
+  { id: 'tiktok', name: 'TikTok', url: function (q) { return 'https://www.tiktok.com/search?q=' + E(q); } },
+  // or: true = platform ini bisa menggabungkan beberapa kata pembuka jadi 1 pencarian ("a" OR "b")
+  { id: 'x', name: 'X', or: true, build: function (qs) { return qs.length > 1 ? orJoin(qs) : qs[0]; }, url: function (q) { return 'https://x.com/search?q=' + E(q) + '&f=live'; } },
+  { id: 'google', name: 'Google', or: true, build: function (qs) { return orJoin(qs); }, url: function (q) { return 'https://www.google.com/search?q=' + E(q) + '&tbs=qdr:w'; } },
+  { id: 'kaskus', name: 'Kaskus', or: true, build: function (qs) { return (qs.length > 1 ? '(' + orJoin(qs) + ')' : orJoin(qs)) + ' site:kaskus.co.id'; }, url: function (q) { return 'https://www.google.com/search?q=' + E(q) + '&tbs=qdr:m'; } }
+];
+function orJoin(qs) { return qs.map(function (q) { return '"' + q + '"'; }).join(' OR '); }
+var INTENTS = ['cari', 'wtb', 'dicari', 'butuh', 'mau beli', 'rekomendasi'];
+var GENERAL = ['cari mobil mewah', 'rekomendasi mobil 500 juta', 'budget 1 M mobil apa', 'cari mobil keluarga mewah', 'cari mobil sport bekas', 'cari mobil listrik mewah', 'wtb mobil', 'cari mpv mewah'];
+var plats = store.get('plats', ['threads', 'facebook', 'tiktok']);
+var customIntents = store.get('customIntents', []);
+var intents = store.get('intents', null) || [store.get('intent', 'cari')];
+var customKw = store.get('customKw', []);
+function allIntents() { return INTENTS.concat(customIntents.filter(function (w) { return INTENTS.indexOf(w) === -1; })); }
+function activeIntents() {
+  var all = allIntents();
+  var a = all.filter(function (w) { return intents.indexOf(w) > -1; });
+  return a.length ? a : [all[0]];
+}
+function saveIntents() { store.set('intents', intents); store.set('customIntents', customIntents); }
+function visits() { var v = store.get('visits', null); if (!v || v.d !== today()) { v = { d: today(), v: {} }; store.set('visits', v); } return v; }
+function shortBrand(b) { return b === 'Mercedes-Benz' ? 'mercy' : String(b || '').split(/\s/)[0].toLowerCase(); }
+
+function keywordGroups() {
+  var ready = CARS.filter(function (c) { return c.status === 'ready'; });
+  var seen = {}, stock = [], brands = [], ws = activeIntents();
+  var withIntents = function (kw) { return ws.map(function (w) { return w + ' ' + kw; }); };
+  ready.forEach(function (c) {
+    var m = c.models[0], kw, al;
+    if (m) {
+      al = m.alias;
+      if (al.indexOf(' ') > -1) al = m.aliases.filter(function (a) { return a.indexOf(' ') === -1 && a.length >= 4; })[0] || al;
+      kw = (al.length <= 3 || /^\d+$/.test(al)) ? shortBrand(c.brand) + ' ' + al : al;
+    }
+    else kw = shortBrand(c.brand) + ' ' + (c.title.split(' ')[1] || '');
+    kw = kw.trim().toLowerCase();
+    if (!seen[kw]) { seen[kw] = 1; stock.push({ label: kw, queries: withIntents(kw), hint: c.priceText }); }
+    var bk = shortBrand(c.brand);
+    if (bk && !seen['b:' + bk]) { seen['b:' + bk] = 1; brands.push({ label: bk, queries: withIntents(bk) }); }
+  });
+  return [
+    { t: 'Dari stok Anda', items: stock },
+    { t: 'Per brand', items: brands },
+    { t: 'Umum (budget & tipe)', items: GENERAL.map(function (q) { return { label: q, queries: [q] }; }) },
+    { t: 'Kata kunci saya', items: customKw.map(function (q) { return { label: q, queries: [q], custom: true }; }), custom: true }
+  ];
+}
+// Semua pencarian untuk 1 kata kunci: per kata pembuka untuk Threads/FB/TikTok/IG, digabung untuk Google/X/Kaskus
+function itemSearches(it) {
+  var on = PLATFORMS.filter(function (p) { return plats.indexOf(p.id) > -1; }), out = [];
+  it.queries.forEach(function (q) {
+    on.forEach(function (p) { if (!p.or) out.push({ p: p, q: q, d: q, k: p.id + '|' + q }); });
+  });
+  on.forEach(function (p) {
+    if (!p.or) return;
+    var q = p.build(it.queries);
+    out.push({ p: p, q: q, d: it.queries.length > 1 ? it.label + ' (gabungan)' : it.queries[0], k: p.id + '|' + q, joined: true });
+  });
+  return out;
+}
+function patrolQueue() {
+  var q = [];
+  keywordGroups().forEach(function (g) { g.items.forEach(function (it) { q = q.concat(itemSearches(it)); }); });
+  return q;
+}
+function linkHtml(s, V) {
+  return '<a class="plink' + (V[s.k] ? ' done' : '') + '" data-k="' + esc(s.k) + '" target="_blank" rel="noopener" href="' + esc(s.p.url(s.q)) + '">' + s.p.name + '</a>';
+}
+function renderPatrol() {
+  $('#platChips').innerHTML = PLATFORMS.map(function (p) { return '<span class="chip pchip' + (plats.indexOf(p.id) > -1 ? ' on' : '') + '" data-plat="' + p.id + '">' + p.name + '</span>'; }).join('');
+  var all = allIntents(), act = activeIntents(), allOn = act.length === all.length;
+  $('#intentChips').innerHTML = '<span class="chip pchip' + (allOn ? ' on' : '') + '" data-intent-all>Semua</span>' +
+    all.map(function (w) {
+      var custom = INTENTS.indexOf(w) === -1;
+      return '<span class="chip pchip' + (act.indexOf(w) > -1 ? ' on' : '') + '" data-intent="' + esc(w) + '">' + esc(w) +
+        (custom ? '<b class="x" data-rmintent="' + esc(w) + '" title="Hapus">×</b>' : '') + '</span>';
+    }).join('');
+  var V = visits().v, total = patrolQueue().length;
+  $('#intentInfo').innerHTML = act.length + ' kata pembuka aktif · <b>' + total + '</b> pencarian per hari' +
+    (total > 120 ? '<br>Makin banyak kata pembuka, makin lama patrolinya. Google, X, dan Kaskus otomatis digabung jadi 1 pencarian per kata kunci.' : '');
+  $('#kwGroups').innerHTML = keywordGroups().map(function (g) {
+    if (!g.items.length && !g.custom) return '';
+    return '<div class="sec-t"><h3>' + esc(g.t) + '</h3><span>' + g.items.length + ' kata kunci</span></div><div class="card">' +
+      (g.items.length ? g.items.map(function (it) {
+        var S = itemSearches(it), multi = it.queries.length > 1;
+        var head = multi ? it.label + '<small>' + it.queries.length + ' kata pembuka' + (it.hint ? ' · ' + esc(it.hint) : '') + '</small>'
+                         : esc(it.queries[0]) + (it.hint ? '<small>' + esc(it.hint) + '</small>' : '');
+        var body;
+        if (!multi) body = '<div class="plinks">' + S.map(function (s) { return linkHtml(s, V); }).join('') + '</div>';
+        else {
+          body = it.queries.map(function (q) {
+            var row = S.filter(function (s) { return !s.joined && s.q === q; });
+            return row.length ? '<div class="kw-sub"><span class="w">' + esc(q) + '</span><div class="plinks">' + row.map(function (s) { return linkHtml(s, V); }).join('') + '</div></div>' : '';
+          }).join('');
+          var j = S.filter(function (s) { return s.joined; });
+          if (j.length) body += '<div class="kw-sub"><span class="w">semua pembuka sekaligus</span><div class="plinks">' + j.map(function (s) { return linkHtml(s, V); }).join('') + '</div></div>';
+        }
+        return '<div class="kw"><div class="kw-h"><div class="kw-q">' + head + '</div>' +
+          '<div>' + (it.custom ? '<button class="kw-x" data-del="' + esc(it.label) + '">hapus</button>' : '') +
+          '<a class="plink alert" title="Pasang Google Alerts" target="_blank" rel="noopener" href="https://www.google.com/alerts?q=' + E(orJoin(it.queries)) + '">🔔</a></div></div>' +
+          body + '</div>';
+      }).join('') : '<div class="mute small">Belum ada. Tambahkan di bawah.</div>') + '</div>';
+  }).join('');
+  updateProgress();
+}
+function updateProgress() {
+  var V = visits().v, Q = patrolQueue();
+  var done = Q.filter(function (x) { return V[x.k]; }).length;
+  $('#progBar').style.width = Q.length ? (done / Q.length * 100) + '%' : '0';
+  var nx = Q.filter(function (x) { return !V[x.k]; })[0];
+  $('#nextInfo').textContent = nx ? done + '/' + Q.length + ' · berikutnya: ' + nx.p.name + ' “' + nx.d + '”' : (Q.length ? 'Patroli hari ini selesai 🎉' : '');
+}
+function markVisit(k) {
+  var v = visits(); v.v[k] = Date.now(); store.set('visits', v);
+  $$('.plink[data-k]').forEach(function (a) { if (a.dataset.k === k) a.classList.add('done'); });
+  updateProgress();
+}
+
+/* ================= Leads ================= */
+var leads = store.get('leads', []);
+function saveLeads() { store.set('leads', leads); renderLeads(); }
+function getLead(id) { return leads.filter(function (l) { return l.id === id; })[0]; }
+function hotFor(l) {
+  if (/Deal|Batal/.test(l.status)) return [];
+  var n = parseNeed(l.text);
+  if (!hasCriteria(n)) return [];
+  var offered = new Set(l.offered || []);
+  return matchAll(n, 65).filter(function (r) {
+    return r.car.status === 'ready' && !offered.has(r.car.id) && r.car.added && new Date(r.car.added) > new Date(l.savedAt);
+  });
+}
+function renderLeads() {
+  var f = $('#leadFilter').value, hotCount = 0;
+  var list = leads.slice().sort(function (a, b) { return String(b.savedAt).localeCompare(String(a.savedAt)); });
+  var html = list.map(function (l) {
+    var hot = hotFor(l); if (hot.length) hotCount++;
+    if (f && l.status !== f) return '';
+    var n = parseNeed(l.text);
+    return '<div class="lead' + (hot.length ? ' hot' : '') + '" data-lead="' + esc(l.id) + '">' +
+      '<div class="lead-h"><div class="lead-n">' + esc(l.name || 'Tanpa nama') + '</div><div class="lead-m">' + esc(l.platform || '') + ' · ' + relDate(l.savedAt) + '</div></div>' +
+      '<div class="chips mt">' + (l.role && l.role !== 'Belum tahu' ? '<span class="chip ok">👤 ' + esc(l.role) + '</span>' : '') + (hasCriteria(n) ?'<span class="chip g">' + esc(needText(n)) + '</span>' : '') + (n.city ? '<span class="chip">📍 ' + esc(n.city) + '</span>' : '') + '</div>' +
+      '<div class="lead-t">' + esc(l.text.length > 180 ? l.text.slice(0, 180) + '…' : l.text) + '</div>' +
+      hot.slice(0, 2).map(function (r) { return '<div class="hotbox"><span>🔥 Unit baru cocok: <b>' + esc(r.car.name) + '</b> (' + r.pct + '%)</span><button class="btn sm pri" data-offer="' + esc(r.car.id) + '">Tawarkan</button></div>'; }).join('') +
+      '<div class="grid2"><select data-status>' + STATUSES.map(function (s) { return '<option' + (s === l.status ? ' selected' : '') + '>' + s + '</option>'; }).join('') + '</select>' +
+      '<select data-role>' + ROLES.map(function (r) { return '<option' + (r === (l.role || 'Belum tahu') ? ' selected' : '') + '>' + r + '</option>'; }).join('') + '</select>' +
+      '<input data-note placeholder="Catatan (mis. follow up Senin)" value="' + esc(l.note || '') + '"></div>' +
+      '<div class="row">' +
+      '<button class="btn sm" data-rematch>🎯 Cocokkan</button>' +
+      (l.url ? '<a class="btn sm" target="_blank" rel="noopener" href="' + esc(l.url) + '">Buka postingan</a>' : '') +
+      (l.phone ? '<a class="btn sm wa" target="_blank" rel="noopener" href="https://wa.me/' + esc(l.phone) + '">WA</a>' : '') +
+      '<button class="btn sm ghost" data-del>Hapus</button></div></div>';
+  }).join('');
+  $('#leadList').innerHTML = html || '<div class="empty"><b>Belum ada lead</b>Simpan buyer dari tab Cocokkan dengan tombol ⭐ Simpan lead.</div>';
+  var b = $('#leadBadge'); b.textContent = hotCount; b.classList.toggle('hidden', !hotCount);
+}
+function openLeadInMatch(l, carId) {
+  activeLeadId = l.id;
+  $('#q').value = l.text; $('#buyerName').value = l.name || '';
+  setTab('match');
+  runMatch(false);
+  if (carId) { selected = new Set([carId]); renderResults(); renderMsg(); }
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+function download(name, text, type) {
+  var a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([text], { type: type }));
+  a.download = name; document.body.appendChild(a); a.click();
+  setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 500);
+}
+
+/* ================= Navigasi ================= */
+function setTab(t) {
+  $$('.tab').forEach(function (s) { s.classList.toggle('on', s.id === 'tab-' + t); });
+  $$('.nav button').forEach(function (b) { b.classList.toggle('on', b.dataset.tab === t); });
+  store.set('tab', t);
+  if (t === 'patrol') renderPatrol();
+  if (t === 'leads') renderLeads();
+}
+
+/* ================= Event ================= */
+var deb;
+$('#q').addEventListener('input', function () { clearTimeout(deb); deb = setTimeout(function () { activeLeadId = activeLeadId && getLead(activeLeadId) && getLead(activeLeadId).text === $('#q').value ? activeLeadId : null; runMatch(false); }, 140); });
+$('#buyerName').addEventListener('input', renderMsg);
+$('#pasteBtn').addEventListener('click', function () {
+  if (!navigator.clipboard || !navigator.clipboard.readText) { $('#q').focus(); toast('Tekan lama di kotak, lalu pilih Tempel'); return; }
+  navigator.clipboard.readText().then(function (t) {
+    if (!t) { toast('Clipboard kosong'); return; }
+    $('#q').value = t; activeLeadId = null; runMatch(false);
+  }).catch(function () { $('#q').focus(); toast('Tekan lama di kotak, lalu pilih Tempel'); });
+});
+$('#clearBtn').addEventListener('click', function () { $('#q').value = ''; $('#buyerName').value = ''; activeLeadId = null; runMatch(false); $('#q').focus(); });
+$$('.ex button').forEach(function (b) { b.addEventListener('click', function () { $('#q').value = b.dataset.ex; activeLeadId = null; runMatch(false); }); });
+$('#results').addEventListener('click', function (e) {
+  if (e.target.closest('a')) return;
+  var card = e.target.closest('.res'); if (!card || card.classList.contains('booked')) return;
+  var id = card.dataset.id;
+  if (selected.has(id)) selected.delete(id); else selected.add(id);
+  card.classList.toggle('sel', selected.has(id));
+  renderMsg();
+});
+$('#modeSeg').addEventListener('click', function (e) {
+  var b = e.target.closest('button'); if (!b) return;
+  msgMode = b.dataset.mode; store.set('msgMode', msgMode); renderMsg();
+});
+$('#sapa').value = store.get('sapa', 'Kak');
+$('#sapa').addEventListener('change', function () { store.set('sapa', $('#sapa').value); renderMsg(); });
+$('#varBtn').addEventListener('click', function () { variant++; renderMsg(); });
+$('#askRole').checked = store.get('askRole', true);
+$('#askRole').addEventListener('change', function () { store.set('askRole', $('#askRole').checked); renderMsg(); });
+function markOffered() {
+  if (!activeLeadId) return;
+  var l = getLead(activeLeadId); if (!l) return;
+  l.offered = Array.from(new Set((l.offered || []).concat(Array.from(selected))));
+  if (l.status === 'Baru' && selected.size) l.status = 'Ditawari';
+  saveLeads();
+}
+$('#copyBtn').addEventListener('click', function () {
+  var t = $('#msg').value;
+  var done = function () { toast('Pesan disalin ✓'); markOffered(); };
+  if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(t).then(done, function () { $('#msg').select(); document.execCommand('copy'); done(); });
+  else { $('#msg').select(); document.execCommand('copy'); done(); }
+});
+$('#waBtn').addEventListener('click', function () { $('#waBtn').href = $('#waBtn').href.replace(/text=[^&]*/, 'text=' + E($('#msg').value)); markOffered(); });
+
+$('#lfPlat').innerHTML = LEAD_PLATS.map(function (p) { return '<option>' + p + '</option>'; }).join('');
+$('#lfRole').innerHTML = ROLES.map(function (r) { return '<option>' + r + '</option>'; }).join('');
+$('#lfStatus').innerHTML = STATUSES.map(function (s) { return '<option>' + s + '</option>'; }).join('');
+$('#leadFilter').innerHTML += STATUSES.map(function (s) { return '<option>' + s + '</option>'; }).join('');
+var sharedUrl = '';
+$('#saveLeadBtn').addEventListener('click', function () {
+  if (activeLeadId && getLead(activeLeadId)) { markOffered(); toast('Lead diperbarui ✓'); return; }
+  $('#lfName').value = $('#buyerName').value.trim();
+  $('#lfUrl').value = sharedUrl || '';
+  $('#lfPhone').value = need && need.phone ? need.phone : '';
+  $('#lfRole').value = need && need.role ? need.role : 'Belum tahu';
+  $('#lfPlat').value = store.get('lastPlat', 'Threads');
+  var hasOffer = results.some(function (r) { return selected.has(r.car.id); });
+  $('#lfStatus').value = need && need.intent !== 'seller' && !hasOffer ? 'Dicarikan' : selected.size ? 'Ditawari' : 'Baru';
+  $('#leadDlg').showModal();
+});
+$('#lfCancel').addEventListener('click', function () { $('#leadDlg').close(); });
+$('#leadForm').addEventListener('submit', function (e) { e.preventDefault(); $('#lfOk').click(); });
+$('#lfOk').addEventListener('click', function () {
+  $('#leadDlg').close();
+  var phone = $('#lfPhone').value.trim();
+  var l = {
+    id: uid(), savedAt: new Date().toISOString(), text: $('#q').value.trim(),
+    name: $('#lfName').value.trim(), platform: $('#lfPlat').value, url: $('#lfUrl').value.trim(),
+    phone: phone ? (parsePhone(phone) || phone.replace(/\D/g, '')) : '', status: $('#lfStatus').value, role: $('#lfRole').value,
+    note: '', offered: Array.from(selected)
+  };
+  store.set('lastPlat', l.platform);
+  leads.push(l); activeLeadId = l.id; saveLeads();
+  $('#buyerName').value = l.name;
+  toast('Lead disimpan ⭐');
+});
+
+$('#platChips').addEventListener('click', function (e) {
+  var c = e.target.closest('[data-plat]'); if (!c) return;
+  var id = c.dataset.plat, i = plats.indexOf(id);
+  if (i > -1) { if (plats.length > 1) plats.splice(i, 1); } else plats.push(id);
+  store.set('plats', plats); renderPatrol();
+});
+$('#intentChips').addEventListener('click', function (e) {
+  var rm = e.target.closest('[data-rmintent]');
+  if (rm) {
+    var w = rm.dataset.rmintent;
+    customIntents = customIntents.filter(function (x) { return x !== w; });
+    intents = intents.filter(function (x) { return x !== w; });
+    saveIntents(); renderPatrol(); toast('Kata pembuka “' + w + '” dihapus');
+    return;
+  }
+  if (e.target.closest('[data-intent-all]')) {
+    var all = allIntents();
+    intents = activeIntents().length === all.length ? [all[0]] : all.slice();
+    saveIntents(); renderPatrol();
+    return;
+  }
+  var c = e.target.closest('[data-intent]'); if (!c) return;
+  var act = activeIntents(), i = act.indexOf(c.dataset.intent);
+  if (i > -1) { if (act.length > 1) act.splice(i, 1); else { toast('Minimal 1 kata pembuka'); return; } }
+  else act.push(c.dataset.intent);
+  intents = act; saveIntents(); renderPatrol();
+});
+function addIntent() {
+  var w = $('#intentNew').value.trim().toLowerCase().replace(/\s+/g, ' ');
+  if (!w) return;
+  if (allIntents().indexOf(w) === -1) customIntents.push(w);
+  intents = activeIntents(); if (intents.indexOf(w) === -1) intents.push(w);
+  saveIntents(); $('#intentNew').value = ''; renderPatrol(); toast('Kata pembuka “' + w + '” ditambahkan');
+}
+$('#intentAdd').addEventListener('click', addIntent);
+$('#intentNew').addEventListener('keydown', function (e) { if (e.key === 'Enter') addIntent(); });
+$('#kwGroups').addEventListener('click', function (e) {
+  var a = e.target.closest('.plink[data-k]'); if (a) { markVisit(a.dataset.k); return; }
+  var d = e.target.closest('[data-del]');
+  if (d) { customKw = customKw.filter(function (q) { return q !== d.dataset.del; }); store.set('customKw', customKw); renderPatrol(); }
+});
+$('#nextBtn').addEventListener('click', function () {
+  var V = visits().v;
+  var nx = patrolQueue().filter(function (x) { return !V[x.k]; })[0];
+  if (!nx) { toast('Patroli hari ini sudah selesai 🎉'); return; }
+  window.open(nx.p.url(nx.q), '_blank', 'noopener');
+  markVisit(nx.k);
+});
+function addKw() {
+  var v = $('#kwNew').value.trim().toLowerCase(); if (!v) return;
+  if (customKw.indexOf(v) === -1) customKw.push(v);
+  store.set('customKw', customKw); $('#kwNew').value = ''; renderPatrol(); toast('Kata kunci ditambahkan');
+}
+$('#kwAdd').addEventListener('click', addKw);
+$('#kwNew').addEventListener('keydown', function (e) { if (e.key === 'Enter') addKw(); });
+
+$('#leadList').addEventListener('click', function (e) {
+  var box = e.target.closest('[data-lead]'); if (!box) return;
+  var l = getLead(box.dataset.lead); if (!l) return;
+  if (e.target.closest('[data-del]')) { if (confirm('Hapus lead ' + (l.name || '') + '?')) { leads = leads.filter(function (x) { return x !== l; }); saveLeads(); } return; }
+  if (e.target.closest('[data-rematch]')) { openLeadInMatch(l); return; }
+  var o = e.target.closest('[data-offer]'); if (o) openLeadInMatch(l, o.dataset.offer);
+});
+$('#leadList').addEventListener('change', function (e) {
+  var box = e.target.closest('[data-lead]'); if (!box) return;
+  var l = getLead(box.dataset.lead); if (!l) return;
+  if (e.target.matches('[data-status]')) { l.status = e.target.value; saveLeads(); }
+  if (e.target.matches('[data-role]')) { l.role = e.target.value; saveLeads(); }
+  if (e.target.matches('[data-note]')) { l.note = e.target.value; store.set('leads', leads); }
+});
+$('#leadFilter').addEventListener('change', renderLeads);
+$('#csvBtn').addEventListener('click', function () {
+  var cols = ['Tanggal', 'Nama', 'Platform', 'Status', 'Tipe buyer', 'Kebutuhan', 'Teks', 'Link', 'WA', 'Catatan', 'Unit ditawarkan'];
+  var q = function (v) { return '"' + String(v == null ? '' : v).replace(/"/g, '""') + '"'; };
+  var rows = leads.map(function (l) {
+    return [l.savedAt.slice(0, 10), l.name, l.platform, l.status, l.role || 'Belum tahu', needText(parseNeed(l.text)), l.text, l.url, l.phone, l.note,
+      (l.offered || []).map(function (id) { return BY_ID[id] ? BY_ID[id].name : id; }).join('; ')].map(q).join(',');
+  });
+  download('velom-leads-' + today() + '.csv', '﻿' + cols.join(',') + '\n' + rows.join('\n'), 'text/csv');
+});
+$('#bakBtn').addEventListener('click', function () {
+  download('velom-radar-backup-' + today() + '.json', JSON.stringify({ leads: leads, customKw: customKw }, null, 1), 'application/json');
+});
+$('#restoreIn').addEventListener('change', function (e) {
+  var f = e.target.files[0]; if (!f) return;
+  f.text().then(function (t) {
+    var d = JSON.parse(t), have = new Set(leads.map(function (l) { return l.id; })), added = 0;
+    (d.leads || []).forEach(function (l) { if (l && l.id && l.text != null && !have.has(l.id)) { leads.push(l); added++; } });
+    (d.customKw || []).forEach(function (k) { if (customKw.indexOf(k) === -1) customKw.push(k); });
+    store.set('customKw', customKw); saveLeads(); renderPatrol();
+    toast(added + ' lead dipulihkan');
+  }).catch(function () { toast('File backup tidak valid'); });
+  e.target.value = '';
+});
+
+$$('.nav button').forEach(function (b) { b.addEventListener('click', function () { setTab(b.dataset.tab); window.scrollTo(0, 0); }); });
+$('#reloadBtn').addEventListener('click', function () { loadStock(true); });
+
+/* ================= Mulai ================= */
+// Teks yang dibagikan dari aplikasi lain (Bagikan → Velom Radar)
+var P = new URLSearchParams(location.search);
+var shared = [P.get('title'), P.get('text')].filter(Boolean).join('\n').trim();
+sharedUrl = P.get('url') || ((shared.match(/https?:\/\/\S+/) || [])[0] || '');
+if (shared || sharedUrl) {
+  $('#q').value = shared || '';
+  setTab('match');
+  history.replaceState(null, '', location.pathname);
+} else setTab(store.get('tab', 'match'));
+runMatch(false);
+loadStock(false);
+if ('serviceWorker' in navigator && location.protocol === 'https:') {
+  navigator.serviceWorker.register('sw.js').catch(function () {});
+}
+})();
+</script>
+</body>
+</html>
