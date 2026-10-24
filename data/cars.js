@@ -1,6 +1,34 @@
 window.VELOM_DATA = {
  "cars": [
   {
+   "id": "mercedes-benz-g63-amg-urban-edition",
+   "brand": "Mercedes-Benz",
+   "date": "2026-10-24",
+   "photos": [
+    "cars/mercedes-benz-g63-amg-urban-edition/11.jpg",
+    "cars/mercedes-benz-g63-amg-urban-edition/02.jpg",
+    "cars/mercedes-benz-g63-amg-urban-edition/01.jpg",
+    "cars/mercedes-benz-g63-amg-urban-edition/09.jpg",
+    "cars/mercedes-benz-g63-amg-urban-edition/03.jpg",
+    "cars/mercedes-benz-g63-amg-urban-edition/04.jpg",
+    "cars/mercedes-benz-g63-amg-urban-edition/05.jpg",
+    "cars/mercedes-benz-g63-amg-urban-edition/06.jpg",
+    "cars/mercedes-benz-g63-amg-urban-edition/07.jpg",
+    "cars/mercedes-benz-g63-amg-urban-edition/08.jpg",
+    "cars/mercedes-benz-g63-amg-urban-edition/10.jpg",
+    "cars/mercedes-benz-g63-amg-urban-edition/12.jpg",
+    "cars/mercedes-benz-g63-amg-urban-edition/13.jpg",
+    "cars/mercedes-benz-g63-amg-urban-edition/14.jpg"
+   ],
+   "spek": "MERCEDES-BENZ G63 AMG URBAN EDITION\n\nTahun / NIK: 2022\n\nKilometer: 8.xxx km\n\nVarian: Urban Edition\n\nSertifikat: HP 700\n\nKondisi: Rapi dan terawat\n\nHarga: Rp6.500.000.000 (6,5 Miliar)\n\nLokasi: Showroom\n\nUNIT LANGKA — TIDAK ADA YANG PUNYA!\n\nMercedes-Benz G63 AMG Urban Edition dengan tampilan gagah, interior mewah, dan performa luar biasa. Kilometer rendah, kondisi rapi, serta dilengkapi sertifikat HP 700.\n\nHarga: Rp6,5 Miliar\n\nSerious buyer welcome.",
+   "status": "ready",
+   "edits": {
+    "odo": "8000KM"
+   },
+   "source": "admin:24.10.2026.zip",
+   "added": "2026-10-24T06:11:52"
+  },
+  {
    "id": "porsche-taycan-electric-atpm-2",
    "brand": "Porsche",
    "date": "2026-10-22",
@@ -276,5 +304,5 @@ window.VELOM_DATA = {
    "added": "2026-10-21T07:50:00"
   }
  ],
- "updated": "2026-10-22T17:19:28"
+ "updated": "2026-10-24T06:14:41"
 };
